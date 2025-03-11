@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Housingbaazar.com</title>
+    <style>
+        /* Global Styles */
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100%;
+            position: relative;
+        }
+
+        /* Create the background image */
+        body {
+            background: url('images/background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-position: center;
+            transition: background-size 0.5s ease-out; /* Smooth transition for zoom */
+        }
+
+        /* Add a semi-transparent overlay */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay with 50% opacity */
+            z-index: -1; /* Place the overlay behind the content */
+        }
+
+        header {
+            background-color: rgba(51, 51, 51, 0.7); /* Transparent background for header */
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header .logo h1 {
+            font-size: 2.5em;
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 50px;
+            background-color: rgba(33, 150, 243, 0.7); /* Blue with transparency */
+            color: white;
+        }
+
+        footer {
+            background-color: rgba(51, 51, 51, 0.7);
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .property-card {
+            width: 45%;
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .property-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .booking-form input,
+        .booking-form textarea {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .booking-form button {
+            padding: 10px 20px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header and Navigation -->
+    <header>
+        <div class="logo">
+            <h1>Housingbaazar.com</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="house.html">Home</a></li>
+                <li><a href="listings.html">Listings</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Find Your Perfect Home</h2>
+        <p>Browse through a variety of rental options.</p>
+    </section>
+
+    <!-- Property Listings Section -->
+    <section class="listing-container">
+        <div class="property-card">
+            <img src="images/property1.jpg" alt="Beautiful 2BHK">
+            <h3>Beautiful 2BHK in the City Center</h3>
+            <p>₹20,000/month</p>
+            <p>A cozy apartment in the heart of the city, perfect for families.</p>
+            <button onclick="window.location.href='house-details.html'">View Details</button>
+        </div>
+
+        <div class="property-card">
+            <img src="images/property2.jpg" alt="Cozy 1BHK Near Park">
+            <h3>Cozy 1BHK Near Park</h3>
+            <p>₹15,000/month</p>
+            <p>Peaceful and calm, ideal for singles or couples.</p>
+            <button onclick="window.location.href='house-details.html'">View Details</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 House Rental. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript to zoom in the background image as the user scrolls
+        window.addEventListener('scroll', function () {
+            let scrollPos = window.scrollY;
+            let zoomLevel = 1 + (scrollPos / 1000);  // Increase zoom with scroll position
+
+            // Update the background size dynamically
+            document.body.style.backgroundSize = (100 * zoomLevel) + '%';
+        });
+    </script>
+
+</body>
+
+</html>

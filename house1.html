@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Details - House Rental</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header .logo h1 {
+            font-size: 2.5em;
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+
+        .hero {
+            position: relative;
+            text-align: center;
+            color: white;
+            background-color: #2196F3;
+            padding: 50px;
+        }
+
+        .hero h2 {
+            font-size: 3em;
+        }
+
+        .property-details {
+            padding: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .property-card {
+            width: 45%;
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .property-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .property-card h3 {
+            margin-top: 10px;
+        }
+
+        .property-card p {
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+
+        .contact-info {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            font-size: 1.2em;
+        }
+
+        .booking-form {
+            text-align: center;
+            padding: 30px;
+            background-color: #f4f4f4;
+        }
+
+        .booking-form input,
+        .booking-form textarea {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .booking-form button {
+            padding: 10px 20px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>House Rental</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="listings.html">Listings</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>All Our Available Houses</h2>
+        <p>Browse through our exclusive house rental listings.</p>
+    </section>
+
+    <!-- Property Details Section -->
+    <section class="property-details">
+        <!-- Property 1 -->
+        <div class="property-card">
+            <img src="property1.jpg" alt="Beautiful 2BHK">
+            <h3>Beautiful 2BHK in the City Center</h3>
+            <p>₹20,000/month</p>
+            <p>A cozy apartment in the heart of the city, perfect for families.</p>
+        </div>
+
+        <!-- Property 2 -->
+        <div class="property-card">
+            <img src="property2.jpg" alt="Cozy 1BHK Near Park">
+            <h3>Cozy 1BHK Near Park</h3>
+            <p>₹15,000/month</p>
+            <p>Peaceful and calm, ideal for singles or couples.</p>
+        </div>
+
+        <!-- Property 3 -->
+        <div class="property-card">
+            <img src="property3.jpg" alt="Luxury 3BHK Villa">
+            <h3>Luxury 3BHK Villa</h3>
+            <p>₹35,000/month</p>
+            <p>Spacious villa with modern amenities and a beautiful garden.</p>
+        </div>
+
+        <!-- Property 4 -->
+        <div class="property-card">
+            <img src="property4.jpg" alt="Modern 2BHK with Balcony">
+            <h3>Modern 2BHK with Balcony</h3>
+            <p>₹25,000/month</p>
+            <p>Bright and airy apartment with a stunning view.</p>
+        </div>
+    </section>
+
+    <!-- Contact Info Section -->
+    <section class="contact-info">
+        <h3>Contact Details</h3>
+        <p>For more information or to book any property, please contact:</p>
+        <p><strong>Name:</strong> Sourya</p>
+        <p><strong>Email:</strong> sourya@houserentals.com</p>
+        <p><strong>Phone:</strong> +91 123 456 7890</p>
+    </section>
+
+    <!-- Booking Form Section -->
+    <section class="booking-form">
+        <h3>Book a Property</h3>
+        <form action="submit-booking.html" method="POST">
+            <input type="text" name="full-name" placeholder="Your Full Name" required><br>
+            <input type="email" name="email" placeholder="Your Email Address" required><br>
+            <input type="tel" name="phone" placeholder="Your Phone Number" required><br>
+            <textarea name="message" placeholder="Additional Message" rows="4"></textarea><br>
+            <button type="submit">Submit Booking</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 House Rental. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

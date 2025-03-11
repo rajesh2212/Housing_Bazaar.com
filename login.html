@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Details - House Rental</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>House Rental</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="house.html">Home</a></li>
+                <li><a href="listings.html">Listings</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- House Details Section -->
+    <section class="property-details">
+        <h2>Beautiful 2BHK in the City Center</h2>
+        <img src="images/property1.jpg" alt="Beautiful 2BHK">
+        <p>₹20,000/month</p>
+        <p>A cozy apartment in the heart of the city, perfect for families.</p>
+        <p>This property includes two spacious bedrooms, a living room, and a fully furnished kitchen. It is located in a prime area with great transportation access.</p>
+    </section>
+
+    <!-- Booking Form -->
+    <section class="booking-form">
+        <h3>Book this Property</h3>
+        <form action="submit-booking.html" method="POST">
+            <input type="text" name="full-name" placeholder="Your Full Name" required><br>
+            <input type="email" name="email" placeholder="Your Email Address" required><br>
+            <input type="tel" name="phone" placeholder="Your Phone Number" required><br>
+            <textarea name="message" placeholder="Additional Message" rows="4"></textarea><br>
+            <button type="submit">Submit Booking</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 House Rental. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

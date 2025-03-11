@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Housingbaazar.com</title>
+    <style>
+        /* Global Styles */
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100%;
+            position: relative;
+        }
+
+        /* Create the background image */
+        body {
+            background: url('images/background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-position: center;
+            transition: background-size 0.5s ease-out; /* Smooth transition for zoom */
+        }
+
+        /* Add a semi-transparent overlay */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay with 50% opacity */
+            z-index: -1; /* Place the overlay behind the content */
+        }
+
+        header {
+            background-color: rgba(51, 51, 51, 0.7); /* Transparent background for header */
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header .logo h1 {
+            font-size: 2.5em;
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 50px;
+            background-color: rgba(33, 149, 243, 0); /* Blue with transparency */
+            color: white;
+        }
+
+        /* Search Bar Styles */
+.search-bar {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.search-bar input[type="text"] {
+    padding: 12px 20px; /* Increased padding for a rounder appearance */
+    width: 60%;
+    font-size: 1.2em;
+    border-radius: 50px; /* Make it circular */
+    border: 1px solid #cccccc3d;
+    margin-right: 10px;
+    background-color: #ffffff3c;
+    outline: none;
+}
+
+.search-bar input[type="text"]:focus {
+    border-color: #2195f300; /* Focused input with a blue border */
+}
+
+.search-bar button {
+    padding: 12px 20px; /* Increase padding for consistency */
+    font-size: 1.2em;
+    background-color: #ffffff3c;
+    color: white;
+    border: none;
+    border-radius: 50px; /* Make the button circular */
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #1976d218;
+}
+
+
+        /* Trending Search Suggestions */
+        .suggestions {
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: none;
+            z-index: 10;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .suggestion-item {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .suggestion-item:hover {
+            background-color: #f1f1f1;
+        }
+
+        footer {
+            background-color: rgba(51, 51, 51, 0.7);
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        /* Property Cards Layout */
+        .property-cards-container {
+            display: flex; /* Display the property cards horizontally */
+            justify-content: space-between; /* Distribute the cards evenly */
+            margin-top: 20px;
+        }
+
+        .property-card {
+            width: 45%; /* Set width of each card */
+            display: flex; /* Use flexbox for content inside the card */
+            flex-direction: column; /* Stack the image and text vertically */
+            align-items: center; /* Center the content */
+            padding: 20px;
+            background-color: #ffffff3c;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .property-card img {
+            width: 100%; /* Make the image take the full width */
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 15px; /* Space between the image and the text */
+        }
+
+        .property-card h3 {
+            font-size: 1.6em;
+            margin-bottom: 10px;
+        }
+
+        .property-card p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .property-card button {
+            padding: 10px 20px;
+            background-color: #ffffff3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .property-card button:hover {
+            background-color: #1976D2;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .property-cards-container {
+                flex-direction: column; /* Stack cards vertically on mobile */
+                align-items: center;
+            }
+
+            .property-card {
+                width: 90%; /* Make the cards take more width on mobile */
+                margin-bottom: 20px; /* Add space between the cards */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header and Navigation -->
+    <header>
+        <div class="logo">
+            <h1>Housingbaazar.com</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#listings">Listings</a></li>
+                <li><a href="#login">Login</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="hero">
+            <h2>Welcome to HousingBaazar</h2>
+            <p>Your perfect home is just a click away. Explore listings and find your next rental.</p>
+            
+            <!-- Search Bar Section -->
+            <div class="search-bar">
+                <input type="text" id="search" placeholder="Search for properties, city, or area..." oninput="showSuggestions(this.value)">
+                <button>Search</button>
+
+                <!-- Suggestions Dropdown -->
+                <div id="suggestions" class="suggestions">
+                    <!-- Suggestions will be displayed here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Listings Section -->
+<section id="listings">
+    <style>
+        /* Center the <h2> element */
+        #listings h2 {
+            color: white;
+            text-align: center; /* This centers the text horizontally */
+            font-size: 2em; /* Optional: Adjust font size */
+            margin-bottom: 20px; /* Optional: Add some space below the <h2> */
+        }
+
+        /* Optional: Add styling for the body and HTML */
+        body, html {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Container for the property cards */
+        .property-cards-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            transition: all 0.3s ease; /* Smooth zoom effect */
+        }
+
+        /* Individual property card */
+        .property-card {
+            width: 300px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease; /* Smooth transition for each card */
+            transform-origin: center; /* Ensures the zoom happens from the center */
+        }
+
+        .property-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .property-card h3 {
+            font-size: 1.4em;
+            margin: 10px 0;
+        }
+
+        .property-card p {
+            font-size: 1em;
+            margin: 5px 0;
+        }
+
+        .property-card button {
+            background-color: #f8fcff3c;
+            color: rgb(0, 0, 0);
+            border: none;
+            padding: 10px 15px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease; /* Smooth transition for changes */
+        }
+
+        .property-card button:hover {
+            background-color: #0000003c;
+            color: #fff;  /* Text color remains white */
+            transform: scale(1.1);  /* Slight zoom effect for highlight */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);  /* Add shadow for a lifted effect */
+        }
+
+        /* Hover effect to zoom in on the container */
+        .property-card:hover {
+            transform: scale(1.1); /* Zoom in on hover */
+            z-index: 10; /* Bring the zoomed-in card to the front */
+        }
+    </style>
+
+    <h2> BEST ROOMS AVAILABLE</h2>
+    <div class="property-cards-container">
+
+        <!-- 1st rent room --> 
+        <div class="property-card"> 
+            <img src="images/property1.jpg" alt="Beautiful 2BHK">
+            <h3>Beautiful 2BHK in the City Center</h3>
+            <p>₹20,000/month</p>
+            <p>A cozy apartment in the heart of the city, perfect for families.</p>
+            <button onclick="window.location.href='house-details.html'">View Details</button>
+        </div>
+
+        <!-- 2nd rent room-->
+        <div class="property-card">
+            <img src="images/property2.jpg" alt="Cozy 1BHK Near Park">
+            <h3>Cozy 1BHK Near Park</h3>
+            <p>₹15,000/month</p>
+            <p>Peaceful and calm, ideal for singles or couples.</p>
+            <button onclick="window.location.href='house-details.html'">View Details</button>
+        </div>
+
+        <!-- 3rd rent room-->
+        <div class="property-card">
+            <img src="images/property3.jpg" alt="Neat and Clean 4BHK Near Rajghat Bridge">
+            <h3>Neat and Clean 4BHK Near Rajghat Bridge</h3>
+            <p>₹30,000/month</p>
+            <p>Best for aged people and kids as the surroundings are quiet.</p>
+            <button onclick="window.location.href='house-details.html'">View Details</button>
+        </div>
+
+        <!-- 4th rent room-->
+        <div class="property-card">
+            <img src="images/property4.jpg" alt="Weather is Slightly Cool 1BHK Near Park">
+            <h3>Weather is Slightly Cool 1BHK Near Park</h3>
+            <p>₹4,000/month</p>
+            <p>Best for couples due to its chill climate with slow winds every day.</p>
+            <button onclick="window.location.href='house-details.html'">View Details</button>
+        </div>
+        
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Container to hold both sections side by side -->
+<div class="section-container">
+  
+    <!-- Login Section -->
+    <section id="login">
+      <h2>Login to HousingBaazar</h2>
+      <form action="/submit-login" method="POST">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+  
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required>
+  
+          <button type="submit">Login</button>
+      </form>
+    </section>
+  
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>CONTACT US</h2>
+      <p>Have any questions? Reach out to us via the contact form below.</p>
+      <form action="/submit-contact" method="POST">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+  
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+  
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required rows="4"></textarea>
+  
+          <button type="submit">Submit</button>
+      </form>
+    </section>
+  
+  </div>
+  
+  <style>
+    /* Container for sections */
+    .section-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 20px;
+      flex-wrap: wrap; /* To make them stack on smaller screens */
+    }
+  
+    /* Login Section */
+    #login {
+      padding: 40px;
+      background-color: #ffffff3c;
+      color: rgb(0, 0, 0);
+      border-radius: 20px;
+      width: 40%; /* Adjust width for horizontal alignment */
+    }
+  
+    #login form {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    #login label {
+      margin-bottom: 8px;
+      font-size: 1.1em;
+    }
+  
+    #login input[type="email"],
+    #login input[type="password"] {
+      padding: 12px 20px;
+      font-size: 1em;
+      margin-bottom: 15px;
+      border-radius: 50px;
+      border: 1px solid #ffffff3c;
+      outline: none;
+      background-color: #ffffff3c;
+    }
+  
+    #login input[type="email"]:focus,
+    #login input[type="password"]:focus {
+      border-color: #2196F3;
+    }
+  
+    #login button {
+      padding: 12px 20px;
+      font-size: 1.2em;
+      background-color: #ffffff3c;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+  
+    #login button:hover {
+      background-color: #2f5fce3c;
+    }
+  
+    /* Contact Section */
+    #contact {
+      padding: 40px;
+      background-color: #ffffff3c;
+      color: rgb(0, 0, 0);
+      border-radius: 20px;
+      width: 40%; /* Adjust width for horizontal alignment */
+    }
+  
+    #contact h2 {
+      text-align: center;
+      font-size: 1.8em;
+    }
+  
+    #contact p {
+      text-align: center;
+      font-size: 1.1em;
+      margin-bottom: 20px;
+    }
+  
+    #contact form {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    #contact label {
+      margin-bottom: 8px;
+      font-size: 1.1em;
+    }
+  
+    #contact input[type="email"],
+    #contact input[type="text"],
+    #contact textarea {
+      padding: 12px 20px;
+      font-size: 1em;
+      margin-bottom: 15px;
+      border-radius: 50px;
+      border: 1px solid #ccc;
+      outline: none;
+      background-color: #ffffff3c;
+    }
+  
+    #contact input[type="email"]:focus,
+    #contact input[type="text"]:focus,
+    #contact textarea:focus {
+      border-color: #2196F3;
+    }
+  
+    #contact button {
+      padding: 12px 20px;
+      font-size: 1.2em;
+      background-color: #ffffff3c;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+  
+    #contact button:hover {
+      background-color: #f7f7f73c;
+    }
+  
+    /* Responsiveness */
+    @media screen and (max-width: 768px) {
+      .section-container {
+        flex-direction: column; /* Stack vertically on small screens */
+      }
+  
+      #login, #contact {
+        width: 80%; /* Make sections take more space on small screens */
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+  
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Housingbaazar. All rights reserved under the owner Sourya Dev Mallick.</p>
+    </footer>
+
+    <script>
+        const trendingSearches = [
+            '2BHK in New York',
+            '3BHK near Park',
+            'Apartment for rent in Delhi',
+            'Luxury houses in Mumbai',
+            'Affordable rentals in Bangalore',
+            'Cozy studio near metro',
+            'Luxury penthouses in Gurgaon'
+        ];
+
+        // Function to show suggestions based on user input
+        function showSuggestions(query) {
+            const suggestionsContainer = document.getElementById('suggestions');
+            if (query.length === 0) {
+                suggestionsContainer.style.display = 'none'; // Hide suggestions if input is empty
+                return;
+            }
+
+            // Filter trending searches based on query
+            const filteredSuggestions = trendingSearches.filter(search => search.toLowerCase().includes(query.toLowerCase()));
+
+            if (filteredSuggestions.length === 0) {
+                suggestionsContainer.style.display = 'none';
+                return;
+            }
+
+            // Create suggestion items
+            suggestionsContainer.innerHTML = filteredSuggestions.map(suggestion => 
+                `<div class="suggestion-item" onclick="selectSuggestion('${suggestion}')">${suggestion}</div>`
+            ).join('');
+
+            suggestionsContainer.style.display = 'block'; // Show suggestions
+        }
+
+        // Function to select a suggestion
+        function selectSuggestion(suggestion) {
+            document.getElementById('search').value = suggestion;
+            document.getElementById('suggestions').style.display = 'none'; // Hide suggestions after selection
+        }
+
+        // JavaScript to zoom in the background image as the user scrolls
+        window.addEventListener('scroll', function () {
+            let scrollPos = window.scrollY;
+            let zoomLevel = 1 + (scrollPos / 1000);  // Increase zoom with scroll position
+
+            // Update the background size dynamically
+            document.body.style.backgroundSize = (100 * zoomLevel) + '%';
+        });
+    </script>
+
+</body>
+
+</html>
