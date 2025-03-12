@@ -7,6 +7,7 @@
     <title>Login - Housingbaazar</title>
     <style>
         /* Global Styles */
+        
         body,
         html {
             margin: 0;
@@ -14,39 +15,40 @@
             font-family: 'Arial', sans-serif;
             height: auto;
             background: #f4f4f425;
-            overflow-x: hidden; /* Allow vertical scroll */
+            overflow-x: hidden;
+            /* Allow vertical scroll */
         }
-
         /* Header Styles */
+        
         header {
             background-color: rgba(51, 51, 51, 0.9);
             color: rgba(255, 255, 255, 0.187);
             padding: 20px 0;
             text-align: center;
         }
-
+        
         header .logo h1 {
             font-size: 2.5em;
             margin: 0;
         }
-
+        
         header nav ul {
             list-style: none;
             padding: 0;
         }
-
+        
         header nav ul li {
             display: inline;
             margin: 0 15px;
         }
-
+        
         header nav ul li a {
             color: rgba(255, 255, 255, 0.491);
             text-decoration: none;
             font-size: 1.1em;
         }
-
         /* Background Image */
+        
         .login-container {
             position: relative;
             background: url('images/background.jpg') no-repeat center center fixed;
@@ -55,8 +57,8 @@
             transition: background-size 0.5s ease-out;
             padding-bottom: 50px;
         }
-
         /* Login Box */
+        
         .login-box {
             background-color: rgba(255, 255, 255, 0.461);
             padding: 40px;
@@ -70,13 +72,13 @@
             left: 50%;
             transform: translate(-50%, -50%);
         }
-
+        
         .login-box h2 {
             text-align: center;
             margin-bottom: 30px;
             color: #333;
         }
-
+        
         .login-box input {
             width: 100%;
             padding: 15px;
@@ -86,11 +88,11 @@
             font-size: 1em;
             outline: none;
         }
-
+        
         .login-box input:focus {
             border-color: #2196F3;
         }
-
+        
         .login-box button {
             width: 100%;
             padding: 15px;
@@ -101,12 +103,12 @@
             border-radius: 30px;
             cursor: pointer;
         }
-
+        
         .login-box button:hover {
             background-color: #1976D2;
         }
-
         /* Footer Styles */
+        
         footer {
             background-color: rgba(51, 51, 51, 0.7);
             color: rgba(255, 255, 255, 0);
@@ -114,8 +116,8 @@
             padding: 10px;
             position: relative;
         }
-
         /* Terms and Conditions Section */
+        
         .terms-conditions {
             padding: 40px;
             background-color: #ffffff3c;
@@ -128,15 +130,14 @@
             max-width: 800px;
             line-height: 1.6;
         }
-
         /* Responsive Design */
+        
         @media (max-width: 768px) {
             .login-box {
                 width: 90%;
                 padding: 20px;
             }
         }
-
     </style>
 </head>
 
@@ -176,7 +177,8 @@
 
         <p><b>1. Acceptance of Terms:</b> By using Housingbaazar, you agree to be bound by these Terms and Conditions. If you do not agree to these terms, please do not use our services.</p>
 
-        <p><b>2. Property Listings:</b> We provide a platform for users to find rental properties, commercial spaces, and properties for sale. All listings are submitted by property owners or agents, and we do not guarantee the accuracy of the information provided. You should verify the details before making any decisions.</p>
+        <p><b>2. Property Listings:</b> We provide a platform for users to find rental properties, commercial spaces, and properties for sale. All listings are submitted by property owners or agents, and we do not guarantee the accuracy of the information
+            provided. You should verify the details before making any decisions.</p>
 
         <p><b>3. Usage Restrictions:</b> You agree not to use the platform for any unlawful purpose, including but not limited to fraudulent activities, uploading harmful content, or attempting to disrupt the platform’s functioning.</p>
 
@@ -186,7 +188,8 @@
 
         <p><b>6. Fees and Payments:</b> Some services on Housingbaazar are free, while others may require payment. If you choose to use a paid service, you agree to pay the applicable fees. Payments must be made in accordance with our payment policies.</p>
 
-        <p><b>7. Limitation of Liability:</b> Housingbaazar is not responsible for any loss or damage resulting from the use of our platform. We make no warranties regarding the accuracy of the information or the availability of the properties listed on our site.</p>
+        <p><b>7. Limitation of Liability:</b> Housingbaazar is not responsible for any loss or damage resulting from the use of our platform. We make no warranties regarding the accuracy of the information or the availability of the properties listed on
+            our site.</p>
 
         <p><b>8. Changes to Terms:</b> We may update or revise these Terms and Conditions at any time. You will be notified of any significant changes. It is your responsibility to review the terms periodically.</p>
 
@@ -204,9 +207,9 @@
 
     <script>
         // Zoom effect for the background image on scroll
-        window.addEventListener('scroll', function () {
+        window.addEventListener('scroll', function() {
             let scrollPos = window.scrollY;
-            let zoomLevel = 1 + (scrollPos / 1000);  // Increase zoom with scroll position
+            let zoomLevel = 1 + (scrollPos / 1000); // Increase zoom with scroll position
 
             // Update the background size dynamically
             document.body.style.backgroundSize = (100 * zoomLevel) + '%';
