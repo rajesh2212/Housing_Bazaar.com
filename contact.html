@@ -4,78 +4,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - House Rental</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            background-image: url('images/background.jpg');
-            /* Replace with your actual image */
-            background-size: cover;
-            background-position: center;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .contact-info {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            width: 50%;
-            margin: 50px auto;
-            text-align: center;
-            border-radius: 50px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        
-        .contact-info h3 {
-            color: #333;
-        }
-        
-        .contact-info p {
-            font-size: 18px;
-            margin: 5px 0;
-        }
-        
-        .contact-info a {
-            text-decoration: none;
-            color: #007bff;
-            font-weight: bold;
-        }
-    </style>
+    <title>Contact — Housing Baazar</title>
+    <meta name="description" content="Talk to Housing Baazar about renting a home or listing your property in Delhi NCR. Email, phone, and WhatsApp details.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Header -->
-    <header>
-        <div class="logo">
-            <h1>House Rental</h1>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html" aria-label="Housing Baazar home">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.5 12 3l8.5 7.5"/><path d="M5.5 9v11h13V9"/><path d="M10 20v-5.5h4V20"/></svg>
+                </span>
+                Housing Baazar
+            </a>
+            <nav class="site-nav" id="site-nav" aria-label="Main">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="listings.html">Homes</a></li>
+                    <li><a href="contact.html" aria-current="page">Contact</a></li>
+                    <li><a href="login.html">Sign in</a></li>
+                    <li class="nav-cta-mobile"><a class="btn btn--primary btn--block" href="contact.html">List your home</a></li>
+                </ul>
+            </nav>
+            <a class="btn btn--primary header-cta" href="contact.html">List your home</a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
-        <nav>
-            <ul>
-                <li><a href="house.html">Home</a></li>
-                <li><a href="listings.html">Listings</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
     </header>
 
-    <!-- Contact Info Section -->
-    <section class="contact-info">
-        <h3>Contact Details</h3>
-        <p>For more information or to book any property, please contact:</p>
-        <p><strong>Name:</strong> Sourya</p>
-        <p><strong>Email:</strong> <a href="mailto:sourya@houserentals.com">sourya@houserentals.com</a></p>
-        <p><strong>Phone:</strong> <a href="tel:+911234567890">+91 6371618670</a></p>
-        <p><strong>WhatsApp:</strong> <a href="https://wa.me/911234567890" target="_blank">Chat on WhatsApp</a></p>
-    </section>
+    <main id="main">
+        <section class="page-hero">
+            <div class="container">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="sep">/</span>
+                    <span aria-current="page">Contact</span>
+                </nav>
+                <span class="eyebrow">Say hello</span>
+                <h1>Tell us what you're looking for.</h1>
+                <p>Whether you're renting or listing, a quick note is all it takes. We reply within one working day.</p>
+            </div>
+        </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 House Rental. All rights reserved.</p>
+        <section class="container contact-layout" aria-label="Contact Housing Baazar">
+            <div>
+                <div class="contact-intro">
+                    <h2>Send us a note</h2>
+                    <p>Share a few details and we'll come back with options or next steps.</p>
+                </div>
+                <form class="form-card" data-form="contact">
+                    <div class="form-grid">
+                        <div class="field">
+                            <label for="contact-name">Full name</label>
+                            <input id="contact-name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+                        </div>
+                        <div class="field">
+                            <label for="contact-email">Email</label>
+                            <input id="contact-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+                        </div>
+                        <div class="field">
+                            <label for="contact-phone">Phone</label>
+                            <input id="contact-phone" name="phone" type="tel" autocomplete="tel" placeholder="+91 98765 43210">
+                        </div>
+                        <div class="field">
+                            <label for="contact-interest">I'm here to</label>
+                            <select id="contact-interest" name="interest" required>
+                                <option value="">Choose one</option>
+                                <option value="rent">Rent a home</option>
+                                <option value="list">List my home</option>
+                                <option value="other">Ask something else</option>
+                            </select>
+                        </div>
+                        <div class="field field--full">
+                            <label for="contact-message">Message</label>
+                            <textarea id="contact-message" name="message" placeholder="Neighbourhood, budget, timeline — or anything else we should know." required></textarea>
+                        </div>
+                    </div>
+                    <button class="btn btn--primary btn--block" type="submit">Send message</button>
+                    <p class="form-status" role="status" aria-live="polite" aria-atomic="true" tabindex="-1"></p>
+                    <p class="form-foot">Demo form — submissions stay in your browser.</p>
+                </form>
+            </div>
+
+            <aside class="contact-panel" aria-label="Contact details">
+                <h2>Reach us directly</h2>
+                <p>Prefer to skip the form? These work too.</p>
+                <div class="contact-list">
+                    <div class="contact-item">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7.5 9 6 9-6"/></svg>
+                        <div>
+                            <small>Email</small>
+                            <a href="mailto:support@housingbaazar.com">support@housingbaazar.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6.8 3.5h2.6l1.3 3.9-1.9 1.3a12.5 12.5 0 0 0 6.5 6.5l1.3-1.9 3.9 1.3v2.6a2.3 2.3 0 0 1-2.5 2.3A15.8 15.8 0 0 1 4.5 6a2.3 2.3 0 0 1 2.3-2.5Z"/></svg>
+                        <div>
+                            <small>Phone</small>
+                            <a href="tel:+916371618670">+91 63716 18670</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                        <div>
+                            <small>Office</small>
+                            <span class="value">New Delhi, India</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
+                        <div>
+                            <small>Hours</small>
+                            <span class="value">Mon–Sat, 9:30am – 6:30pm</span>
+                        </div>
+                    </div>
+                </div>
+                <a class="btn btn--light btn--block" href="https://wa.me/916371618670" target="_blank" rel="noopener">Chat on WhatsApp</a>
+            </aside>
+        </section>
+
+        <section class="container faq-section" aria-labelledby="faq-heading">
+            <span class="eyebrow">Good to know</span>
+            <h2 id="faq-heading">Questions, answered.</h2>
+            <div class="faq">
+                <details>
+                    <summary>How do I book a visit?</summary>
+                    <p>Open any home and choose “Book a visit”. Share a preferred date and your contact details, and we'll confirm a time within one working day.</p>
+                </details>
+                <details>
+                    <summary>Are the listings verified?</summary>
+                    <p>Every home is visited and photographed before it goes live. This site is a demo, so the eight listings are sample content rather than live inventory.</p>
+                </details>
+                <details>
+                    <summary>How do I list my home?</summary>
+                    <p>Send us a note with your address, expected rent, and a few photos. We'll reply within a working day to arrange a visit and prepare the listing.</p>
+                </details>
+                <details>
+                    <summary>What does the deposit cover?</summary>
+                    <p>Deposits are shown on each home and are typically two months' rent. The rental agreement sets out the refund terms before you sign.</p>
+                </details>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a class="brand" href="index.html" aria-label="Housing Baazar home">
+                        <span class="brand-mark" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.5 12 3l8.5 7.5"/><path d="M5.5 9v11h13V9"/><path d="M10 20v-5.5h4V20"/></svg>
+                        </span>
+                        Housing Baazar
+                    </a>
+                    <p>Curated rental homes across Delhi NCR. Thoughtful spaces, honest details, and straightforward renting.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="listings.html">Homes</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="login.html">Sign in</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Neighbourhoods</h3>
+                    <ul>
+                        <li><a href="listings.html?q=Connaught%20Place">Connaught Place</a></li>
+                        <li><a href="listings.html?q=Hauz%20Khas">Hauz Khas</a></li>
+                        <li><a href="listings.html?q=Vasant%20Kunj">Vasant Kunj</a></li>
+                        <li><a href="listings.html?q=Chattarpur">Chattarpur</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="mailto:support@housingbaazar.com">support@housingbaazar.com</a></li>
+                        <li><a href="tel:+916371618670">+91 63716 18670</a></li>
+                        <li>New Delhi, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© <span data-year>2026</span> Housing Baazar. All rights reserved.</p>
+                <p>Demo listings · Prices in INR</p>
+            </div>
+        </div>
     </footer>
 
+    <script src="scripts.js"></script>
 </body>
 
 </html>

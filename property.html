@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home details — Housing Baazar</title>
+    <meta name="description" content="Details, amenities, and visit booking for a curated rental home from Housing Baazar.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html" aria-label="Housing Baazar home">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.5 12 3l8.5 7.5"/><path d="M5.5 9v11h13V9"/><path d="M10 20v-5.5h4V20"/></svg>
+                </span>
+                Housing Baazar
+            </a>
+            <nav class="site-nav" id="site-nav" aria-label="Main">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="listings.html" aria-current="page">Homes</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html">Sign in</a></li>
+                    <li class="nav-cta-mobile"><a class="btn btn--primary btn--block" href="contact.html">List your home</a></li>
+                </ul>
+            </nav>
+            <a class="btn btn--primary header-cta" href="contact.html">List your home</a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main">
+        <div class="container page-hero">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="index.html">Home</a>
+                <span class="sep">/</span>
+                <a href="listings.html">Homes</a>
+                <span class="sep">/</span>
+                <span id="property-crumb" aria-current="page">Home details</span>
+            </nav>
+        </div>
+
+        <div class="container">
+            <div class="property-layout">
+                <div>
+                    <figure class="property-media">
+                        <img id="property-image" src="images/property1.jpg" alt="Rental home interior" width="1536" height="1024">
+                    </figure>
+
+                    <div class="property-summary">
+                        <div class="property-kicker">
+                            <span class="tag" id="property-tag">Popular</span>
+                            <span class="property-type" id="property-type">Apartment</span>
+                        </div>
+                        <h1 id="property-title">Beautiful 2BHK in the City Center</h1>
+                        <p class="property-address">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                            <span id="property-location">Connaught Place, New Delhi</span>
+                        </p>
+                        <p class="property-price"><strong id="property-price">₹20,000</strong><span>/ month</span></p>
+                    </div>
+
+                    <div class="spec-strip">
+                        <div class="spec"><small>Bedrooms</small><strong id="spec-beds">2 bedrooms</strong></div>
+                        <div class="spec"><small>Bathrooms</small><strong id="spec-baths">2 bathrooms</strong></div>
+                        <div class="spec"><small>Area</small><strong id="spec-area">1,050 sq ft</strong></div>
+                        <div class="spec"><small>Type</small><strong id="spec-type">Apartment</strong></div>
+                    </div>
+
+                    <section class="property-section" aria-labelledby="about-heading">
+                        <h2 id="about-heading">About this home</h2>
+                        <p id="property-description"></p>
+                    </section>
+
+                    <section class="property-section" aria-labelledby="amenities-heading">
+                        <h2 id="amenities-heading">What's included</h2>
+                        <ul class="amenities" id="property-amenities"></ul>
+                    </section>
+
+                    <section class="property-section" aria-labelledby="area-heading">
+                        <h2 id="area-heading">The neighbourhood</h2>
+                        <p id="property-neighbourhood"></p>
+                    </section>
+                </div>
+
+                <aside class="booking-card" aria-label="Rental summary">
+                    <p class="price"><span id="booking-price">₹20,000</span> <span>/ month</span></p>
+                    <div class="booking-facts">
+                        <div class="booking-fact"><span>Deposit</span><strong id="booking-deposit">₹40,000</strong></div>
+                        <div class="booking-fact"><span>Available</span><strong id="booking-available">Immediately</strong></div>
+                        <div class="booking-fact"><span>Furnishing</span><strong id="booking-furnishing">Semi-furnished</strong></div>
+                    </div>
+                    <a class="btn btn--primary btn--block" href="#book">Book a visit</a>
+                    <a class="btn btn--ghost btn--block" href="https://wa.me/916371618670" target="_blank" rel="noopener">Ask on WhatsApp</a>
+                    <p class="booking-note">No brokerage · One point of contact</p>
+                    <div class="agent">
+                        <div class="agent-avatar" aria-hidden="true">S</div>
+                        <div>
+                            <small>Your host</small>
+                            <strong>Sourya</strong>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            <section class="booking-section" id="book" aria-labelledby="book-heading">
+                <div class="section-copy">
+                    <span class="eyebrow">Book a visit</span>
+                    <h2 id="book-heading">See it in person.</h2>
+                    <p>Tell us when works for you and we'll arrange a walkthrough of this home. Visits usually take about thirty minutes.</p>
+                </div>
+                <form class="form-card" data-form="visit">
+                    <div class="form-grid">
+                        <div class="field">
+                            <label for="visit-name">Full name</label>
+                            <input id="visit-name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+                        </div>
+                        <div class="field">
+                            <label for="visit-phone">Phone</label>
+                            <input id="visit-phone" name="phone" type="tel" autocomplete="tel" placeholder="+91 98765 43210" required>
+                        </div>
+                        <div class="field">
+                            <label for="visit-email">Email</label>
+                            <input id="visit-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+                        </div>
+                        <div class="field">
+                            <label for="visit-date">Preferred date</label>
+                            <input id="visit-date" name="date" type="date" required>
+                        </div>
+                        <div class="field field--full">
+                            <label for="visit-message">Anything we should know?</label>
+                            <textarea id="visit-message" name="message" placeholder="Move-in timeline, questions about the home…"></textarea>
+                        </div>
+                    </div>
+                    <input type="hidden" name="property" id="booking-property" value="1">
+                    <button class="btn btn--primary btn--block" type="submit">Request a visit</button>
+                    <p class="form-status" role="status" aria-live="polite" aria-atomic="true" tabindex="-1"></p>
+                    <p class="form-foot">Demo form — submissions stay in your browser.</p>
+                </form>
+            </section>
+
+            <section class="section similar-section" aria-labelledby="similar-heading">
+                <div class="section-head">
+                    <div>
+                        <span class="eyebrow">Keep looking</span>
+                        <h2 id="similar-heading">More homes you may like</h2>
+                    </div>
+                    <a class="link-arrow" href="listings.html">All homes</a>
+                </div>
+                <div class="property-grid" id="similar-grid"></div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a class="brand" href="index.html" aria-label="Housing Baazar home">
+                        <span class="brand-mark" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.5 12 3l8.5 7.5"/><path d="M5.5 9v11h13V9"/><path d="M10 20v-5.5h4V20"/></svg>
+                        </span>
+                        Housing Baazar
+                    </a>
+                    <p>Curated rental homes across Delhi NCR. Thoughtful spaces, honest details, and straightforward renting.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="listings.html">Homes</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="login.html">Sign in</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Neighbourhoods</h3>
+                    <ul>
+                        <li><a href="listings.html?q=Connaught%20Place">Connaught Place</a></li>
+                        <li><a href="listings.html?q=Hauz%20Khas">Hauz Khas</a></li>
+                        <li><a href="listings.html?q=Vasant%20Kunj">Vasant Kunj</a></li>
+                        <li><a href="listings.html?q=Chattarpur">Chattarpur</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="mailto:support@housingbaazar.com">support@housingbaazar.com</a></li>
+                        <li><a href="tel:+916371618670">+91 63716 18670</a></li>
+                        <li>New Delhi, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© <span data-year>2026</span> Housing Baazar. All rights reserved.</p>
+                <p>Demo listings · Prices in INR</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>

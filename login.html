@@ -4,218 +4,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Housingbaazar</title>
-    <style>
-        /* Global Styles */
-        
-        body,
-        html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            height: auto;
-            background: #f4f4f425;
-            overflow-x: hidden;
-            /* Allow vertical scroll */
-        }
-        /* Header Styles */
-        
-        header {
-            background-color: rgba(51, 51, 51, 0.9);
-            color: rgba(255, 255, 255, 0.187);
-            padding: 20px 0;
-            text-align: center;
-        }
-        
-        header .logo h1 {
-            font-size: 2.5em;
-            margin: 0;
-        }
-        
-        header nav ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        header nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-        
-        header nav ul li a {
-            color: rgba(255, 255, 255, 0.491);
-            text-decoration: none;
-            font-size: 1.1em;
-        }
-        /* Background Image */
-        
-        .login-container {
-            position: relative;
-            background: url('images/background.jpg') no-repeat center center fixed;
-            background-size: cover;
-            height: 100vh;
-            transition: background-size 0.5s ease-out;
-            padding-bottom: 50px;
-        }
-        /* Login Box */
-        
-        .login-box {
-            background-color: rgba(255, 255, 255, 0.461);
-            padding: 40px;
-            border-radius: 50px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            width: 100%;
-            max-width: 400px;
-            margin: 0 auto;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        
-        .login-box h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #333;
-        }
-        
-        .login-box input {
-            width: 100%;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 30px;
-            border: 1px solid #cccccc9a;
-            font-size: 1em;
-            outline: none;
-        }
-        
-        .login-box input:focus {
-            border-color: #2196F3;
-        }
-        
-        .login-box button {
-            width: 100%;
-            padding: 15px;
-            border: none;
-            background-color: #2196F3;
-            color: rgba(255, 255, 255, 0.584);
-            font-size: 1.2em;
-            border-radius: 30px;
-            cursor: pointer;
-        }
-        
-        .login-box button:hover {
-            background-color: #1976D2;
-        }
-        /* Footer Styles */
-        
-        footer {
-            background-color: rgba(51, 51, 51, 0.7);
-            color: rgba(255, 255, 255, 0);
-            text-align: center;
-            padding: 10px;
-            position: relative;
-        }
-        /* Terms and Conditions Section */
-        
-        .terms-conditions {
-            padding: 40px;
-            background-color: #ffffff3c;
-            color: rgb(0, 0, 0);
-            border-radius: 20px;
-            width: 80%;
-            margin: 20px auto;
-            font-size: 1.1em;
-            text-align: justify;
-            max-width: 800px;
-            line-height: 1.6;
-        }
-        /* Responsive Design */
-        
-        @media (max-width: 768px) {
-            .login-box {
-                width: 90%;
-                padding: 20px;
-            }
-        }
-    </style>
+    <title>Sign in — Housing Baazar</title>
+    <meta name="description" content="Sign in to Housing Baazar to save homes and keep track of visit requests.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Header -->
-    <header>
-        <div class="logo">
-            <h1>Housingbaazar.com</h1>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html" aria-label="Housing Baazar home">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.5 12 3l8.5 7.5"/><path d="M5.5 9v11h13V9"/><path d="M10 20v-5.5h4V20"/></svg>
+                </span>
+                Housing Baazar
+            </a>
+            <nav class="site-nav" id="site-nav" aria-label="Main">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="listings.html">Homes</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html" aria-current="page">Sign in</a></li>
+                    <li class="nav-cta-mobile"><a class="btn btn--primary btn--block" href="contact.html">List your home</a></li>
+                </ul>
+            </nav>
+            <a class="btn btn--primary header-cta" href="contact.html">List your home</a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="listings.html">Listings</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
     </header>
 
-    <!-- Login Section -->
-    <div class="login-container" id="background">
-        <div class="login-box">
-            <h2>Login</h2>
-            <form action="/submit-login" method="POST">
-                <input type="email" name="email" placeholder="Email Address" required>
-                <input type="password" name="password" placeholder="Password" required>
-                <button type="submit">Login</button>
-            </form>
+    <main id="main">
+        <section class="auth-section">
+            <div class="container">
+                <div class="auth-grid">
+                    <div class="auth-media">
+                        <blockquote>“The right home changes how everything else feels.”
+                            <small>Housing Baazar</small>
+                        </blockquote>
+                    </div>
+                    <div class="auth-form">
+                        <span class="eyebrow">Welcome back</span>
+                        <h1>Sign in to save homes.</h1>
+                        <p>Pick up where you left off — saved listings and visit requests in one place.</p>
+                        <form data-form="login">
+                            <div class="field">
+                                <label for="login-email">Email</label>
+                                <input id="login-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+                            </div>
+                            <div class="field">
+                                <label for="login-password">Password</label>
+                                <div class="password-control">
+                                    <input id="login-password" name="password" type="password" autocomplete="current-password" placeholder="Your password" minlength="6" required>
+                                    <button class="password-toggle" type="button" aria-controls="login-password" aria-pressed="false" aria-label="Show password">Show</button>
+                                </div>
+                            </div>
+                            <button class="btn btn--primary btn--block" type="submit">Sign in</button>
+                            <p class="form-status" role="status" aria-live="polite" aria-atomic="true" tabindex="-1"></p>
+                        </form>
+                        <p class="auth-note">Demo login — no credentials are stored or sent anywhere. Use any email and a password of six or more characters to preview.</p>
+                        <div class="auth-links">
+                            <a href="listings.html">Browse homes</a>
+                            <a href="contact.html">Need help?</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a class="brand" href="index.html" aria-label="Housing Baazar home">
+                        <span class="brand-mark" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.5 12 3l8.5 7.5"/><path d="M5.5 9v11h13V9"/><path d="M10 20v-5.5h4V20"/></svg>
+                        </span>
+                        Housing Baazar
+                    </a>
+                    <p>Curated rental homes across Delhi NCR. Thoughtful spaces, honest details, and straightforward renting.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="listings.html">Homes</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="login.html">Sign in</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Neighbourhoods</h3>
+                    <ul>
+                        <li><a href="listings.html?q=Connaught%20Place">Connaught Place</a></li>
+                        <li><a href="listings.html?q=Hauz%20Khas">Hauz Khas</a></li>
+                        <li><a href="listings.html?q=Vasant%20Kunj">Vasant Kunj</a></li>
+                        <li><a href="listings.html?q=Chattarpur">Chattarpur</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="mailto:support@housingbaazar.com">support@housingbaazar.com</a></li>
+                        <li><a href="tel:+916371618670">+91 63716 18670</a></li>
+                        <li>New Delhi, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© <span data-year>2026</span> Housing Baazar. All rights reserved.</p>
+                <p>Demo listings · Prices in INR</p>
+            </div>
         </div>
-    </div>
-
-    <!-- Terms and Conditions Section -->
-    <div class="terms-conditions">
-        <h2>Terms and Conditions</h2>
-        <p>Welcome to Housingbaazar! These Terms and Conditions govern your use of our platform. By accessing and using our services, you agree to comply with these terms. Please read them carefully.</p>
-
-        <p><b>1. Acceptance of Terms:</b> By using Housingbaazar, you agree to be bound by these Terms and Conditions. If you do not agree to these terms, please do not use our services.</p>
-
-        <p><b>2. Property Listings:</b> We provide a platform for users to find rental properties, commercial spaces, and properties for sale. All listings are submitted by property owners or agents, and we do not guarantee the accuracy of the information
-            provided. You should verify the details before making any decisions.</p>
-
-        <p><b>3. Usage Restrictions:</b> You agree not to use the platform for any unlawful purpose, including but not limited to fraudulent activities, uploading harmful content, or attempting to disrupt the platform’s functioning.</p>
-
-        <p><b>4. User Responsibilities:</b> As a user of Housingbaazar, you are responsible for maintaining the confidentiality of your account and password. You are also responsible for all activities that occur under your account.</p>
-
-        <p><b>5. Listing Removal:</b> Housingbaazar reserves the right to remove or suspend listings that do not comply with our guidelines or if they are found to be misleading or fraudulent.</p>
-
-        <p><b>6. Fees and Payments:</b> Some services on Housingbaazar are free, while others may require payment. If you choose to use a paid service, you agree to pay the applicable fees. Payments must be made in accordance with our payment policies.</p>
-
-        <p><b>7. Limitation of Liability:</b> Housingbaazar is not responsible for any loss or damage resulting from the use of our platform. We make no warranties regarding the accuracy of the information or the availability of the properties listed on
-            our site.</p>
-
-        <p><b>8. Changes to Terms:</b> We may update or revise these Terms and Conditions at any time. You will be notified of any significant changes. It is your responsibility to review the terms periodically.</p>
-
-        <p><b>9. Governing Law:</b> These Terms and Conditions are governed by the laws of India. Any disputes arising from the use of our services will be resolved under the jurisdiction of the courts in India.</p>
-
-        <p><b>10. Contact Us:</b> If you have any questions about these Terms and Conditions, please feel free to contact us at support@housingbaazar.com.</p>
-
-        <p>By continuing to use Housingbaazar, you confirm that you have read and understood these Terms and Conditions and agree to be bound by them. Thank you for using Housingbaazar!</p>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Housingbaazar. All rights reserved.</p>
     </footer>
 
-    <script>
-        // Zoom effect for the background image on scroll
-        window.addEventListener('scroll', function() {
-            let scrollPos = window.scrollY;
-            let zoomLevel = 1 + (scrollPos / 1000); // Increase zoom with scroll position
-
-            // Update the background size dynamically
-            document.body.style.backgroundSize = (100 * zoomLevel) + '%';
-        });
-    </script>
-
+    <script src="scripts.js"></script>
 </body>
 
 </html>

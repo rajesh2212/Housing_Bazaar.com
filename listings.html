@@ -4,45 +4,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Property Listings - House Rental</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Homes for rent — Housing Baazar</title>
+    <meta name="description" content="Browse eight curated rental homes across Delhi NCR. Filter by neighbourhood, home type, and monthly budget.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Header -->
-    <header>
-        <div class="logo">
-            <h1>House Rental</h1>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html" aria-label="Housing Baazar home">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.5 12 3l8.5 7.5"/><path d="M5.5 9v11h13V9"/><path d="M10 20v-5.5h4V20"/></svg>
+                </span>
+                Housing Baazar
+            </a>
+            <nav class="site-nav" id="site-nav" aria-label="Main">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="listings.html" aria-current="page">Homes</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html">Sign in</a></li>
+                    <li class="nav-cta-mobile"><a class="btn btn--primary btn--block" href="contact.html">List your home</a></li>
+                </ul>
+            </nav>
+            <a class="btn btn--primary header-cta" href="contact.html">List your home</a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
-        <nav>
-            <ul>
-                <li><a href="house.html">Home</a></li>
-                <li><a href="listings.html">Listings</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
     </header>
 
-    <!-- Listings Section -->
-    <section class="listing-container">
-        <!-- Property 1 -->
-        <div class="property-card">
-            <img src="images/property1.jpg" alt="Beautiful 2BHK">
-            <h3>Beautiful 2BHK in the City Center</h3>
-            <p>₹20,000/month</p>
-            <p>A cozy apartment in the heart of the city, perfect for families.</p>
-            <button onclick="window.location.href='house-details.html'">View Details</button>
-        </div>
-        <!-- Add more properties here... -->
-    </section>
+    <main id="main">
+        <section class="page-hero">
+            <div class="container">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="sep">/</span>
+                    <span aria-current="page">Homes</span>
+                </nav>
+                <span class="eyebrow">The collection</span>
+                <h1>Every home, in one place.</h1>
+                <p>Eight rentals across Delhi NCR — filter by type, budget, or neighbourhood and find the one that fits.</p>
+            </div>
+        </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 House Rental. All rights reserved.</p>
+        <section class="container listings-section" aria-labelledby="listings-heading">
+            <h2 class="sr-only" id="listings-heading">Available homes</h2>
+
+            <div class="filters">
+                <div class="field">
+                    <label for="filter-q">Search</label>
+                    <input id="filter-q" type="search" placeholder="Neighbourhood, title, or type…" autocomplete="off">
+                </div>
+                <div class="field">
+                    <label for="filter-budget">Monthly budget</label>
+                    <select id="filter-budget">
+                        <option value="">Any budget</option>
+                        <option value="under-10k">Under ₹10,000</option>
+                        <option value="10k-20k">₹10,000 – ₹20,000</option>
+                        <option value="20k-30k">₹20,000 – ₹30,000</option>
+                        <option value="30k-plus">₹30,000 and above</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="filter-sort">Sort by</label>
+                    <select id="filter-sort">
+                        <option value="featured">Featured</option>
+                        <option value="price-asc">Price: low to high</option>
+                        <option value="price-desc">Price: high to low</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="chips" role="group" aria-label="Filter by home type">
+                <button class="chip" type="button" data-type="" aria-pressed="true">All homes</button>
+                <button class="chip" type="button" data-type="Apartment" aria-pressed="false">Apartments</button>
+                <button class="chip" type="button" data-type="Villa" aria-pressed="false">Villas</button>
+                <button class="chip" type="button" data-type="Townhouse" aria-pressed="false">Townhouses</button>
+                <button class="chip" type="button" data-type="Studio" aria-pressed="false">Studios</button>
+            </div>
+
+            <div class="results-bar">
+                <p id="results-count" role="status" aria-live="polite">Showing all <strong>8</strong> homes</p>
+                <button class="link-button" id="reset-filters" type="button">Reset filters</button>
+            </div>
+
+            <div class="property-grid" id="listings-grid"></div>
+            <noscript><p>Enable JavaScript to filter the collection, or browse the homes from the home page.</p></noscript>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a class="brand" href="index.html" aria-label="Housing Baazar home">
+                        <span class="brand-mark" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.5 12 3l8.5 7.5"/><path d="M5.5 9v11h13V9"/><path d="M10 20v-5.5h4V20"/></svg>
+                        </span>
+                        Housing Baazar
+                    </a>
+                    <p>Curated rental homes across Delhi NCR. Thoughtful spaces, honest details, and straightforward renting.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="listings.html">Homes</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="login.html">Sign in</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Neighbourhoods</h3>
+                    <ul>
+                        <li><a href="listings.html?q=Connaught%20Place">Connaught Place</a></li>
+                        <li><a href="listings.html?q=Hauz%20Khas">Hauz Khas</a></li>
+                        <li><a href="listings.html?q=Vasant%20Kunj">Vasant Kunj</a></li>
+                        <li><a href="listings.html?q=Chattarpur">Chattarpur</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="mailto:support@housingbaazar.com">support@housingbaazar.com</a></li>
+                        <li><a href="tel:+916371618670">+91 63716 18670</a></li>
+                        <li>New Delhi, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© <span data-year>2026</span> Housing Baazar. All rights reserved.</p>
+                <p>Demo listings · Prices in INR</p>
+            </div>
+        </div>
     </footer>
 
+    <script src="scripts.js"></script>
 </body>
 
 </html>
