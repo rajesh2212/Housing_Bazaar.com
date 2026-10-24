@@ -1,149 +1,67 @@
-const LISTINGS = [
-    {
-        id: 1,
-        title: "Beautiful 2BHK in the City Center",
-        location: "Connaught Place, New Delhi",
-        neighbourhood: "Connaught Place is the centre of the city — offices, cafés, and the metro within walking distance.",
-        price: 20000,
-        beds: 2,
-        baths: 2,
-        size: "1,050 sq ft",
-        type: "Apartment",
-        tag: "Popular",
-        furnishing: "Semi-furnished",
-        available: "Immediately",
-        image: "images/property1.jpg",
-        alt: "Living room of a bright two-bedroom apartment in Connaught Place",
-        description: "A bright two-bedroom apartment a short walk from Connaught Place. High ceilings, a proper balcony, and a kitchen that opens into the living room make it easy to settle in.",
-        amenities: ["Covered parking", "24×7 water supply", "Power backup", "Lift access", "Modular kitchen", "Private balcony"]
-    },
-    {
-        id: 2,
-        title: "Cozy 1BHK Near Park",
-        location: "Lodhi Garden, New Delhi",
-        neighbourhood: "Lodhi Garden is quiet, green, and central — the park is the neighbourhood's living room.",
-        price: 15000,
-        beds: 1,
-        baths: 1,
-        size: "620 sq ft",
-        type: "Apartment",
-        tag: "Park-side",
-        furnishing: "Fully furnished",
-        available: "From 1 November",
-        image: "images/property2.jpg",
-        alt: "Bedroom of a cozy one-bedroom home beside Lodhi Garden",
-        description: "A quiet one-bedroom tucked beside Lodhi Garden. Morning light through the living room windows, a small reading nook, and the park gate two minutes away.",
-        amenities: ["Park-facing windows", "Fully furnished", "Power backup", "Lift access", "Pet friendly", "Visitor parking"]
-    },
-    {
-        id: 3,
-        title: "Neat and Clean 4BHK Near Rajghat Bridge",
-        location: "Rajghat, New Delhi",
-        neighbourhood: "Rajghat is calm and leafy, with wide roads and easy access across the city.",
-        price: 30000,
-        beds: 4,
-        baths: 3,
-        size: "1,850 sq ft",
-        type: "Apartment",
-        tag: "Family-sized",
-        furnishing: "Semi-furnished",
-        available: "Immediately",
-        image: "images/property3.jpg",
-        alt: "Warm living room of a spacious four-bedroom home near Rajghat Bridge",
-        description: "A generous four-bedroom home near Rajghat Bridge, built for slow mornings and big family dinners. Quiet street, wide windows, and storage in all the right places.",
-        amenities: ["Two covered parking spots", "Power backup", "Servant room", "Modular kitchen", "Three bathrooms", "Children's park nearby"]
-    },
-    {
-        id: 4,
-        title: "Weather is Slightly Cool 1BHK Near Park",
-        location: "Hauz Khas, New Delhi",
-        neighbourhood: "Hauz Khas pairs a village feel with the city's best cafés around the corner.",
-        price: 4000,
-        beds: 1,
-        baths: 1,
-        size: "540 sq ft",
-        type: "Apartment",
-        tag: "Best value",
-        furnishing: "Unfurnished",
-        available: "From 15 November",
-        image: "images/property4.jpg",
-        alt: "Simple one-bedroom apartment interior in Hauz Khas",
-        description: "An easy one-bedroom with a balcony and cross breeze. The neighbourhood runs a few degrees cooler, and the park is right across the road.",
-        amenities: ["Private balcony", "Cross ventilation", "Park across the road", "24×7 water supply", "Cycle parking", "Quiet lane"]
-    },
-    {
-        id: 5,
-        title: "Luxury 4BHK Villa with Pool",
-        location: "Chattarpur, New Delhi",
-        neighbourhood: "Chattarpur is low-rise and green, known for villas, farms, and weekend calm.",
-        price: 40000,
-        beds: 4,
-        baths: 4,
-        size: "3,200 sq ft",
-        type: "Villa",
-        tag: "Premium",
-        furnishing: "Fully furnished",
-        available: "Immediately",
-        image: "images/property5.jpg",
-        alt: "Luxury villa with a private pool and lounge deck in Chattarpur",
-        description: "A four-bedroom villa with a private pool, timber details, and a garden that feels a world away from the city. Designed for long stays and long weekends.",
-        amenities: ["Private swimming pool", "Landscaped garden", "Timber deck", "Two-car garage", "Staff quarters", "Solar water heating"]
-    },
-    {
-        id: 6,
-        title: "Cozy 2BHK Apartment in City Center",
-        location: "Saket, New Delhi",
-        neighbourhood: "Saket balances malls and quiet lanes, with the metro a few minutes away.",
-        price: 20000,
-        beds: 2,
-        baths: 2,
-        size: "1,100 sq ft",
-        type: "Apartment",
-        tag: "New",
-        furnishing: "Semi-furnished",
-        available: "Immediately",
-        image: "images/property6.jpg",
-        alt: "Cozy two-bedroom apartment living room with oak furniture and plants",
-        description: "A calm two-bedroom in the middle of everything — walk to work, coffee, and the metro. Warm oak floors and a window seat facing the street.",
-        amenities: ["Metro within 10 minutes", "Gym in building", "Power backup", "Covered parking", "Window seat", "Visitor parking"]
-    },
-    {
-        id: 7,
-        title: "Spacious 3BHK Townhouse with Garden",
-        location: "Vasant Kunj, New Delhi",
-        neighbourhood: "Vasant Kunj is family-first: schools, parks, and wide, walkable streets.",
-        price: 28000,
-        beds: 3,
-        baths: 3,
-        size: "1,900 sq ft",
-        type: "Townhouse",
-        tag: "Garden",
-        furnishing: "Unfurnished",
-        available: "From 1 December",
-        image: "images/property7.jpg",
-        alt: "Three-bedroom townhouse with a private lawn and stone path",
-        description: "A three-bedroom townhouse with its own garden, bay windows, and a tree that shades the front lawn. Space for a dog, a desk, and everyone who visits.",
-        amenities: ["Private garden", "Two covered parking spots", "Pet friendly", "Store room", "Power backup", "Schools nearby"]
-    },
-    {
-        id: 8,
-        title: "Modern and Premium 1BHK Studio Apartment",
-        location: "Gurugram, Haryana",
-        neighbourhood: "Gurugram moves fast — offices, restaurants, and the metro all within reach.",
-        price: 20000,
-        beds: 1,
-        baths: 1,
-        size: "580 sq ft",
-        type: "Studio",
-        tag: "Studio",
-        furnishing: "Fully furnished",
-        available: "Immediately",
-        image: "images/property8.jpg",
-        alt: "Modern studio apartment with oak kitchenette and dining nook",
-        description: "A compact, premium studio with an oak kitchenette, a proper dining nook, and afternoon light. Everything you need, nothing you don't.",
-        amenities: ["Fully furnished", "Modular kitchenette", "High-speed internet ready", "Gym in building", "Covered parking", "24×7 security"]
+const API_TIMEOUT_MS = 12000;
+let listingsPromise = null;
+
+async function apiFetch(path) {
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), API_TIMEOUT_MS);
+    try {
+        const response = await fetch(path, {
+            headers: { Accept: "application/json" },
+            credentials: "same-origin",
+            signal: controller.signal
+        });
+        let data = null;
+        const type = response.headers.get("content-type") || "";
+        if (type.includes("application/json")) {
+            data = await response.json().catch(() => null);
+        }
+        if (!response.ok) {
+            const error = new Error((data && data.message) || "Something went wrong. Please try again.");
+            error.status = response.status;
+            throw error;
+        }
+        return data;
+    } catch (error) {
+        if (error.name === "AbortError") {
+            throw new Error("The request took too long. Check your connection and try again.");
+        }
+        if (error.status) throw error;
+        throw new Error("We couldn't reach the server. Check your connection and try again.");
+    } finally {
+        window.clearTimeout(timeout);
     }
-];
+}
+
+function loadListings({ refresh = false } = {}) {
+    if (refresh) listingsPromise = null;
+    if (!listingsPromise) {
+        listingsPromise = apiFetch("/api/properties")
+            .then((data) => {
+                const properties = Array.isArray(data && data.properties) ? data.properties : [];
+                return {
+                    properties,
+                    total: Number(data && data.total) || properties.length,
+                    meta: (data && data.meta) || { cities: [], types: [] }
+                };
+            })
+            .catch((error) => {
+                listingsPromise = null;
+                throw error;
+            });
+    }
+    return listingsPromise;
+}
+
+const HTML_ESCAPES = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
+const escapeHtml = (value) => String(value ?? "").replace(/[&<>"']/g, (character) => HTML_ESCAPES[character]);
+const displayTag = (listing) => (Array.isArray(listing.tags) && listing.tags[0]) || (listing.featured ? "Featured" : "");
+const listingImage = (listing) => {
+    const url = listing.coverImageUrl || "images/property-placeholder.svg";
+    const seed = /^\/?images\/(property\d+)\.jpg$/.exec(url);
+    return seed ? `/images/${seed[1]}-card.webp` : url;
+};
+const listingAlt = (listing) => listing.coverAlt || `${listing.title} in ${listing.location}`;
+
 
 const ICONS = {
     pin: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>',
@@ -255,40 +173,170 @@ function createSpring(initialValue, options = {}) {
 const formatINR = (value) => "\u20B9" + value.toLocaleString("en-IN");
 
 function cardMarkup(listing, index = 0) {
+    const tag = displayTag(listing);
     return `
-        <a class="property-card" href="property.html?id=${listing.id}" style="--i: ${Math.min(index, 8)}">
+        <a class="property-card" href="property.html?id=${encodeURIComponent(listing.id)}" style="--i: ${Math.min(index, 8)}">
             <div class="property-card__media">
-                <img src="${listing.image}" alt="${listing.alt}" loading="lazy" width="1536" height="1024">
-                ${listing.tag ? `<span class="property-card__tag">${listing.tag}</span>` : ""}
+                <img src="${escapeHtml(listingImage(listing))}" alt="${escapeHtml(listingAlt(listing))}" loading="lazy" decoding="async" width="1536" height="1024">
+                ${tag ? `<span class="property-card__tag">${escapeHtml(tag)}</span>` : ""}
             </div>
             <div class="property-card__body">
                 <p class="property-card__price">${formatINR(listing.price)} <span>/ month</span></p>
-                <h3>${listing.title}</h3>
-                <p class="property-card__location">${ICONS.pin}${listing.location}</p>
+                <h3>${escapeHtml(listing.title)}</h3>
+                <p class="property-card__location">${ICONS.pin}${escapeHtml(listing.location)}</p>
                 <div class="property-card__meta">
-                    <span class="meta-item">${ICONS.bed}${listing.beds} bed</span>
-                    <span class="meta-item">${ICONS.bath}${listing.baths} bath</span>
-                    <span class="meta-item">${ICONS.area}${listing.size}</span>
+                    <span class="meta-item">${ICONS.bed}${escapeHtml(listing.bedrooms)} bed</span>
+                    <span class="meta-item">${ICONS.bath}${escapeHtml(listing.bathrooms)} bath</span>
+                    <span class="meta-item">${ICONS.area}${escapeHtml(listing.area)}</span>
                 </div>
             </div>
         </a>`;
 }
 
-function emptyMarkup() {
+function cardSkeletonMarkup(count = 3) {
+    return Array.from({ length: count }, (_, index) => `
+        <div class="property-card property-card--skeleton" aria-hidden="true" style="--i: ${index}">
+            <div class="property-card__media skeleton-block"></div>
+            <div class="property-card__body">
+                <span class="skeleton-line skeleton-line--short"></span>
+                <span class="skeleton-line"></span>
+                <span class="skeleton-line skeleton-line--medium"></span>
+            </div>
+        </div>`).join("");
+}
+
+function emptyMarkup({ filtered = false, total = 0 } = {}) {
+    const heading = filtered ? "No homes match those filters" : "No homes are published right now";
+    const copy = filtered
+        ? `Try a different neighbourhood or budget — there are ${total} home${total === 1 ? "" : "s"} in the collection.`
+        : "New rentals will appear here as soon as they're added. Check back soon.";
     return `
         <div class="empty">
             ${ICONS.search}
-            <h3>No homes match those filters</h3>
-            <p>Try a different neighbourhood or widen your budget — there are eight homes in the collection.</p>
-            <button class="btn btn--primary" type="button" data-reset>Reset filters</button>
+            <h3>${heading}</h3>
+            <p>${copy}</p>
+            ${filtered ? '<button class="btn btn--primary" type="button" data-reset>Reset filters</button>' : ""}
         </div>`;
 }
 
-function initFeatured() {
+function dataErrorMarkup(message) {
+    return `
+        <div class="empty empty--error" role="status">
+            ${ICONS.search}
+            <h3>We couldn't load the homes</h3>
+            <p>${escapeHtml(message || "Check your connection and try again.")}</p>
+            <button class="btn btn--primary" type="button" data-retry-properties>Try again</button>
+        </div>`;
+}
+
+function updateHero(properties, { available = true } = {}) {
+    const featured = available ? properties.find((listing) => listing.featured) || properties[0] : null;
+    const card = document.querySelector(".hero-card");
+    if (featured) {
+        const link = document.querySelector("[data-hero-link]");
+        if (link) {
+            link.href = `property.html?id=${encodeURIComponent(featured.id)}`;
+            link.setAttribute("aria-label", `View ${featured.title}`);
+        }
+        const title = document.querySelector("[data-hero-title]");
+        const location = document.querySelector("[data-hero-location]");
+        const meta = document.querySelector("[data-hero-meta]");
+        if (title) title.textContent = featured.title;
+        if (location) location.textContent = `${featured.location} · ${formatINR(featured.price)}/month`;
+        if (meta) meta.textContent = `${featured.bedrooms} BHK ${featured.type.toLowerCase()}`;
+        if (card) card.hidden = false;
+    } else if (card) {
+        card.hidden = true;
+    }
+    const homes = document.querySelector("[data-stat-homes]");
+    if (homes) homes.textContent = available ? String(properties.length).padStart(2, "0") : "—";
+    const cities = document.querySelector("[data-stat-cities]");
+    if (cities) {
+        cities.textContent = available
+            ? String(new Set(properties.map((listing) => listing.city)).size).padStart(2, "0")
+            : "—";
+    }
+    const rent = document.querySelector("[data-stat-rent]");
+    if (rent) {
+        const minimum = available && properties.length ? Math.min(...properties.map((listing) => listing.price)) : 0;
+        rent.textContent = minimum ? `₹${Math.round(minimum / 1000)}k` : "—";
+    }
+}
+
+const HERO_SIZES = "(max-width: 900px) calc(100vw - 48px), 56vw";
+const HERO_PHOTOS = {
+    featured: {
+        src: "images/hero-house-cutout.webp",
+        srcset: "images/hero-house-cutout-400.webp 400w, images/hero-house-cutout-640.webp 640w, images/hero-house-cutout-800.webp 800w, images/hero-house-cutout.webp 1108w",
+        alt: "Charcoal-grey modern villa with roof terraces, warm-lit windows and a landscaped garden, shown without a background",
+        width: 1108,
+        height: 831
+    },
+    pool: {
+        src: "images/hero-house-cottage-cutout.webp",
+        srcset: "images/hero-house-cottage-cutout-400.webp 400w, images/hero-house-cottage-cutout-640.webp 640w, images/hero-house-cottage-cutout-800.webp 800w, images/hero-house-cottage-cutout.webp 1108w",
+        alt: "White cottage with a dark gabled roof, chimney, front porch and shrubs, shown without a background",
+        width: 1108,
+        height: 812
+    }
+};
+
+function initHeroPhoto() {
+    const image = document.querySelector("[data-hero-image]");
+    const toggle = document.querySelector("[data-hero-photo-toggle]");
+    if (!image || !toggle) return;
+
+    let alternate = null;
+    function prepareAlternate() {
+        if (alternate) return;
+        alternate = new Image();
+        alternate.sizes = HERO_SIZES;
+        alternate.srcset = HERO_PHOTOS.pool.srcset;
+        alternate.src = HERO_PHOTOS.pool.src;
+    }
+    toggle.addEventListener("pointerenter", prepareAlternate, { once: true, passive: true });
+    toggle.addEventListener("focus", prepareAlternate, { once: true });
+    toggle.addEventListener("touchstart", prepareAlternate, { once: true, passive: true });
+
+    toggle.addEventListener("click", () => {
+        const showPool = toggle.getAttribute("aria-pressed") !== "true";
+        const photo = showPool ? HERO_PHOTOS.pool : HERO_PHOTOS.featured;
+        toggle.setAttribute("aria-pressed", String(showPool));
+        toggle.title = showPool
+            ? "Switch back to the featured home photo"
+            : "Switch the featured photo to the 4BHK · Private pool home";
+        image.srcset = photo.srcset;
+        image.sizes = HERO_SIZES;
+        image.src = photo.src;
+        image.alt = photo.alt;
+        image.width = photo.width;
+        image.height = photo.height;
+    });
+}
+
+async function initFeatured(refresh = false) {
     const grid = document.querySelector("#featured-grid");
     if (!grid) return;
-    const featured = [5, 7, 1].map((id) => LISTINGS.find((listing) => listing.id === id));
-    grid.innerHTML = featured.filter(Boolean).map(cardMarkup).join("");
+    grid.innerHTML = cardSkeletonMarkup(3);
+    grid.onclick = (event) => {
+        if (event.target.closest("[data-retry-properties]")) initFeatured(true);
+    };
+    try {
+        const { properties } = await loadListings({ refresh });
+        const featured = properties.filter((listing) => listing.featured);
+        const picks = (featured.length ? featured : properties).slice(0, 3);
+        if (picks.length < 3) {
+            for (const listing of properties) {
+                if (picks.length >= 3) break;
+                if (!picks.includes(listing)) picks.push(listing);
+            }
+        }
+        grid.innerHTML = picks.length ? picks.map(cardMarkup).join("") : emptyMarkup();
+        updateHero(properties);
+    } catch (error) {
+        grid.innerHTML = dataErrorMarkup(error.message);
+        updateHero([], { available: false });
+    }
 }
 
 function initListings() {
@@ -309,6 +357,9 @@ function initListings() {
         budget: params.get("budget") || "",
         sort: params.get("sort") || "featured"
     };
+    let listings = [];
+    let loaded = false;
+    let failed = false;
 
     const knownTypes = chips.map((chip) => chip.dataset.type).filter(Boolean);
     if (state.type && !knownTypes.includes(state.type)) state.type = "";
@@ -337,9 +388,16 @@ function initListings() {
     }
 
     function apply({ animate = true } = {}) {
+        if (!loaded || failed) return;
         const query = state.q.toLowerCase();
-        let results = LISTINGS.filter((listing) => {
-            const searchable = [listing.title, listing.location, listing.type, listing.neighbourhood, listing.tag].join(" ").toLowerCase();
+        let results = listings.filter((listing) => {
+            const searchable = [
+                listing.title,
+                listing.location,
+                listing.type,
+                listing.neighbourhood,
+                ...(Array.isArray(listing.tags) ? listing.tags : [])
+            ].join(" ").toLowerCase();
             if (query && !searchable.includes(query)) return false;
             if (state.type && listing.type !== state.type) return false;
             if (state.budget && budgetRanges[state.budget]) {
@@ -352,13 +410,33 @@ function initListings() {
         if (state.sort === "price-asc") results = results.slice().sort((a, b) => a.price - b.price);
         if (state.sort === "price-desc") results = results.slice().sort((a, b) => b.price - a.price);
 
+        const filtered = Boolean(state.q || state.type || state.budget);
+        const total = listings.length;
         grid.classList.toggle("is-quiet", !animate);
-        grid.innerHTML = results.length ? results.map(cardMarkup).join("") : emptyMarkup();
-        const total = LISTINGS.length;
+        grid.innerHTML = results.length
+            ? results.map(cardMarkup).join("")
+            : emptyMarkup({ filtered, total });
         countOutput.innerHTML = results.length === total
             ? `Showing all <strong>${total}</strong> homes`
             : `Showing <strong>${results.length}</strong> of ${total} homes`;
         syncUrl();
+    }
+
+    async function load({ refresh = false } = {}) {
+        failed = false;
+        grid.innerHTML = cardSkeletonMarkup(3);
+        countOutput.textContent = "Loading homes…";
+        try {
+            const data = await loadListings({ refresh });
+            listings = data.properties;
+            loaded = true;
+            apply();
+        } catch (error) {
+            failed = true;
+            loaded = false;
+            grid.innerHTML = dataErrorMarkup(error.message);
+            countOutput.textContent = "Homes unavailable";
+        }
     }
 
     searchInput.addEventListener("input", () => {
@@ -400,61 +478,192 @@ function initListings() {
     resetButton.addEventListener("click", reset);
     grid.addEventListener("click", (event) => {
         if (event.target.closest("[data-reset]")) reset();
+        if (event.target.closest("[data-retry-properties]")) load({ refresh: true });
     });
 
-    apply();
+    load();
 }
 
 let currentProperty = null;
 
-function initProperty() {
-    const title = document.querySelector("#property-title");
-    if (!title) return;
+function setText(selector, value) {
+    const element = document.querySelector(selector);
+    if (element) element.textContent = value;
+}
+
+function renderPropertyGallery(listing) {
+    const image = document.querySelector("#property-image");
+    const gallery = document.querySelector("#property-gallery");
+    const images = Array.isArray(listing.images) && listing.images.length
+        ? listing.images
+        : [listingImage(listing)];
+
+    if (image) {
+        image.src = images[0];
+        image.alt = listingAlt(listing);
+    }
+    if (!gallery) return;
+    gallery.replaceChildren();
+    if (images.length < 2) {
+        gallery.hidden = true;
+        return;
+    }
+
+    gallery.hidden = false;
+    images.forEach((src, index) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "property-gallery__item";
+        button.setAttribute("aria-label", `Show photo ${index + 1} of ${images.length}`);
+        button.setAttribute("aria-pressed", String(index === 0));
+        button.classList.toggle("is-active", index === 0);
+
+        const thumb = document.createElement("img");
+        thumb.src = src;
+        thumb.alt = "";
+        thumb.loading = "lazy";
+        thumb.decoding = "async";
+        thumb.width = 160;
+        thumb.height = 107;
+        button.append(thumb);
+
+        button.addEventListener("click", () => {
+            if (image) {
+                image.src = src;
+                image.alt = index === 0 ? listingAlt(listing) : `${listingAlt(listing)} — photo ${index + 1}`;
+            }
+            gallery.querySelectorAll(".property-gallery__item").forEach((item) => {
+                const active = item === button;
+                item.classList.toggle("is-active", active);
+                item.setAttribute("aria-pressed", String(active));
+            });
+        });
+        gallery.append(button);
+    });
+}
+
+function renderProperty(listing) {
+    currentProperty = listing;
+    document.title = `${listing.title} — Housing Baazar`;
+    const description = document.querySelector('meta[name="description"]');
+    if (description) description.setAttribute("content", listing.description.slice(0, 158));
+
+    setText("#property-crumb", listing.title);
+    setText("#property-type", listing.type);
+    setText("#property-title", listing.title);
+    setText("#property-location", listing.location);
+    setText("#property-price", formatINR(listing.price));
+    setText("#property-description", listing.description);
+    setText("#property-neighbourhood", listing.neighbourhood);
+    setText("#spec-beds", `${listing.bedrooms} bedroom${listing.bedrooms === 1 ? "" : "s"}`);
+    setText("#spec-baths", `${listing.bathrooms} bathroom${listing.bathrooms === 1 ? "" : "s"}`);
+    setText("#spec-area", listing.area);
+    setText("#spec-type", listing.type);
+
+    const tag = document.querySelector("#property-tag");
+    if (tag) {
+        const label = displayTag(listing);
+        tag.textContent = label;
+        tag.hidden = !label;
+    }
+
+    renderPropertyGallery(listing);
+
+    const amenities = document.querySelector("#property-amenities");
+    if (amenities) {
+        amenities.innerHTML = listing.amenities
+            .map((item) => `<li>${ICONS.check}${escapeHtml(item)}</li>`)
+            .join("");
+    }
+
+    setText("#booking-price", formatINR(listing.price));
+    setText("#booking-deposit", formatINR(listing.deposit));
+    setText("#booking-available", listing.available);
+    setText("#booking-furnishing", listing.furnishing);
+    const bookingProperty = document.querySelector("#booking-property");
+    if (bookingProperty) bookingProperty.value = String(listing.id);
+}
+
+function renderSimilar(listing, properties) {
+    const grid = document.querySelector("#similar-grid");
+    if (!grid) return;
+    const others = properties.filter((item) => item.id !== listing.id);
+    const ordered = [
+        ...others.filter((item) => item.type === listing.type),
+        ...others.filter((item) => item.type !== listing.type)
+    ];
+    const picks = ordered.slice(0, 3);
+    grid.innerHTML = picks.map(cardMarkup).join("");
+    const section = document.querySelector(".similar-section");
+    if (section) section.hidden = !picks.length;
+}
+
+function showPropertyError(message, { title = "We couldn't load this home", retry = true } = {}) {
+    const content = document.querySelector("[data-property-content]");
+    const status = document.querySelector("[data-property-status]");
+    if (content) content.hidden = true;
+    if (!status) return;
+    status.hidden = false;
+    status.innerHTML = `
+        <div class="empty empty--error" role="alert">
+            ${ICONS.search}
+            <h3>${escapeHtml(title)}</h3>
+            <p>${escapeHtml(message)}</p>
+            <div class="empty__actions">
+                <a class="btn btn--primary" href="listings.html">Browse more homes</a>
+                ${retry ? '<button class="btn btn--ghost" type="button" data-retry-property>Try again</button>' : ""}
+            </div>
+        </div>`;
+}
+
+async function initProperty() {
+    const content = document.querySelector("[data-property-content]");
+    const status = document.querySelector("[data-property-status]");
+    if (!content || !status) return;
 
     const params = new URLSearchParams(window.location.search);
     const requestedId = Number(params.get("id"));
-    const listing = LISTINGS.find((item) => item.id === requestedId) || LISTINGS[0];
-    currentProperty = listing;
+    currentProperty = null;
+    content.hidden = true;
+    status.hidden = false;
+    status.innerHTML = `
+        <div class="loading-panel" role="status">
+            <span class="spinner" aria-hidden="true"></span>
+            <p>Loading home details…</p>
+        </div>`;
+    status.onclick = (event) => {
+        if (event.target.closest("[data-retry-property]")) initProperty();
+    };
 
-    document.title = `${listing.title} — Housing Baazar`;
-    document.querySelector("#property-crumb").textContent = listing.title;
-    document.querySelector("#property-type").textContent = listing.type;
-    document.querySelector("#property-title").textContent = listing.title;
-    document.querySelector("#property-location").textContent = listing.location;
-    document.querySelector("#property-price").textContent = formatINR(listing.price);
-    document.querySelector("#property-description").textContent = listing.description;
-    document.querySelector("#property-neighbourhood").textContent = listing.neighbourhood;
-    document.querySelector("#spec-beds").textContent = `${listing.beds} bedrooms`;
-    document.querySelector("#spec-baths").textContent = `${listing.baths} bathrooms`;
-    document.querySelector("#spec-area").textContent = listing.size;
-    document.querySelector("#spec-type").textContent = listing.type;
-
-    const tag = document.querySelector("#property-tag");
-    if (listing.tag) {
-        tag.textContent = listing.tag;
-    } else {
-        tag.remove();
+    if (!Number.isInteger(requestedId) || requestedId < 1) {
+        showPropertyError("Choose a home from the collection to see its details.", {
+            title: "No home selected",
+            retry: false
+        });
+        return;
     }
 
-    const image = document.querySelector("#property-image");
-    image.src = listing.image;
-    image.alt = listing.alt;
-
-    const amenities = document.querySelector("#property-amenities");
-    amenities.innerHTML = listing.amenities.map((item) => `<li>${ICONS.check}${item}</li>`).join("");
-
-    document.querySelector("#booking-price").textContent = formatINR(listing.price);
-    document.querySelector("#booking-deposit").textContent = formatINR(listing.price * 2);
-    document.querySelector("#booking-available").textContent = listing.available;
-    document.querySelector("#booking-furnishing").textContent = listing.furnishing;
-    document.querySelector("#booking-property").value = String(listing.id);
-
-    const similar = LISTINGS
-        .filter((item) => item.id !== listing.id)
-        .sort((a, b) => Number(b.type === listing.type) - Number(a.type === listing.type))
-        .slice(0, 3);
-    document.querySelector("#similar-grid").innerHTML = similar.map(cardMarkup).join("");
+    try {
+        const [detail, listResult] = await Promise.all([
+            apiFetch(`/api/properties/${requestedId}`),
+            loadListings().catch(() => null)
+        ]);
+        const listing = detail && detail.property;
+        if (!listing) {
+            throw new Error("That home is no longer available. Browse the current collection instead.");
+        }
+        renderProperty(listing);
+        renderSimilar(listing, listResult ? listResult.properties : [listing]);
+        status.hidden = true;
+        content.hidden = false;
+    } catch (error) {
+        showPropertyError(error.message, {
+            title: error.status === 404 ? "This home is no longer available" : "We couldn't load this home",
+            retry: error.status !== 404
+        });
+    }
 }
+
 
 const FIELD_MESSAGES = {
     name: "Please add your name.",
@@ -467,13 +676,22 @@ const FIELD_MESSAGES = {
 };
 
 function initForms() {
+    const interestParam = new URLSearchParams(window.location.search).get("interest");
     document.querySelectorAll("form[data-form]").forEach((form) => {
         form.noValidate = true;
+        const kind = form.dataset.form;
+        if (kind !== "contact" && kind !== "visit") return;
+
         const status = form.querySelector(".form-status");
         const fields = Array.from(
             form.querySelectorAll("input:not([type='hidden']):not([disabled]), select:not([disabled]), textarea:not([disabled])")
         );
-        let suppressBlur = false;
+        let submitting = false;
+
+        if (kind === "contact" && ["rent", "list", "other"].includes(interestParam)) {
+            const interest = form.querySelector('[name="interest"]');
+            if (interest) interest.value = interestParam;
+        }
 
         const dateInput = form.querySelector("input[type='date']");
         if (dateInput && !dateInput.min) {
@@ -504,7 +722,7 @@ function initForms() {
         };
 
         const clearError = (field) => {
-            const error = field.closest(".field")?.querySelector(`#${field.id}-error`);
+            const error = field.closest(".field")?.querySelector(`.field-error[data-field="${field.id}"]`);
             if (error) error.remove();
             field.removeAttribute("aria-invalid");
             const describedBy = (field.getAttribute("aria-describedby") || "")
@@ -518,19 +736,20 @@ function initForms() {
         const showError = (field) => {
             const fieldWrap = field.closest(".field");
             if (!fieldWrap) return;
-            let error = fieldWrap.querySelector(`#${field.id}-error`);
+            let error = fieldWrap.querySelector(`.field-error[data-field="${field.id}"]`);
             if (!error) {
                 error = document.createElement("p");
                 error.className = "field-error";
-                error.id = `${field.id}-error`;
+                error.dataset.field = field.id;
                 fieldWrap.append(error);
-                const describedBy = (field.getAttribute("aria-describedby") || "").split(/\s+/).filter(Boolean);
-                if (!describedBy.includes(error.id)) describedBy.push(error.id);
-                field.setAttribute("aria-describedby", describedBy.join(" "));
             }
+            error.id = `${field.id}-error`;
             const message = messageFor(field);
             if (error.textContent !== message) error.textContent = message;
             field.setAttribute("aria-invalid", "true");
+            const describedBy = (field.getAttribute("aria-describedby") || "").split(/\s+/).filter(Boolean);
+            if (!describedBy.includes(error.id)) describedBy.push(error.id);
+            field.setAttribute("aria-describedby", describedBy.join(" "));
         };
 
         const validate = (field) => {
@@ -543,12 +762,23 @@ function initForms() {
         };
 
         const hideStatus = () => {
-            if (status) status.classList.remove("is-visible");
+            if (!status) return;
+            status.classList.remove("is-visible");
+            status.textContent = "";
+        };
+
+        const showStatus = (message, type) => {
+            if (!status) return;
+            status.textContent = message;
+            status.dataset.type = type;
+            status.setAttribute("role", type === "error" ? "alert" : "status");
+            status.classList.add("is-visible");
+            status.focus({ preventScroll: false });
         };
 
         fields.forEach((field) => {
             field.addEventListener("blur", () => {
-                if (!suppressBlur && (field.value || field.required)) validate(field);
+                if (field.value || field.required) validate(field);
             });
             field.addEventListener("input", () => {
                 hideStatus();
@@ -565,8 +795,9 @@ function initForms() {
             hideStatus();
         });
 
-        form.addEventListener("submit", (event) => {
+        form.addEventListener("submit", async (event) => {
             event.preventDefault();
+            if (submitting) return;
             let firstInvalid = null;
             fields.forEach((field) => {
                 if (!validate(field) && !firstInvalid) firstInvalid = field;
@@ -578,32 +809,58 @@ function initForms() {
                 return;
             }
 
-            const nameValue = form.querySelector('[name="name"]');
-            const firstName = nameValue ? nameValue.value.trim().split(/\s+/)[0] : "";
-            const greeting = firstName ? `, ${firstName}` : "";
-            let message = "Thanks — we've noted your message and will reply within one working day.";
+            const value = (name) => {
+                const field = form.elements.namedItem(name);
+                return field && !(field instanceof RadioNodeList) ? field.value.trim() : "";
+            };
 
-            if (form.dataset.form === "visit") {
-                message = `Thanks${greeting} — your visit request for ${currentProperty.title} has been noted. We'll confirm within one working day.`;
+            const payload = {
+                kind,
+                name: value("name"),
+                email: value("email"),
+                phone: value("phone"),
+                message: value("message")
+            };
+            if (kind === "contact") {
+                payload.interest = value("interest");
+            } else {
+                payload.propertyId = Number(currentProperty?.id || form.querySelector("#booking-property")?.value || 0);
+                const date = form.querySelector("input[type='date']");
+                payload.visitDate = date ? date.value : "";
             }
 
-            if (form.dataset.form === "login") {
-                message = "Demo sign-in complete. No credentials were stored or sent.";
+            submitting = true;
+            hideStatus();
+            const submitButton = form.querySelector("[type='submit']");
+            const idleLabel = submitButton ? submitButton.textContent : "";
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.setAttribute("aria-busy", "true");
+                submitButton.textContent = kind === "visit" ? "Sending request…" : "Sending message…";
             }
 
-            suppressBlur = true;
-            form.reset();
-            if (status) {
-                status.textContent = message;
-                status.classList.add("is-visible");
-                status.focus({ preventScroll: true });
-            }
-            requestAnimationFrame(() => {
-                suppressBlur = false;
-            });
-
-            if (form.dataset.form === "visit" && currentProperty) {
-                form.querySelector("#booking-property").value = String(currentProperty.id);
+            try {
+                const result = await window.HBAuth.api("/api/inquiries", { method: "POST", body: payload });
+                form.reset();
+                if (kind === "visit" && currentProperty) {
+                    const hidden = form.querySelector("#booking-property");
+                    if (hidden) hidden.value = String(currentProperty.id);
+                }
+                if (kind === "contact" && ["rent", "list", "other"].includes(interestParam)) {
+                    const interest = form.querySelector('[name="interest"]');
+                    if (interest) interest.value = interestParam;
+                }
+                showStatus(result.message, "success");
+            } catch (error) {
+                if (error.fields) window.HBAuth.applyServerFields(form, error.fields);
+                showStatus(error.message || "We couldn't send that just now. Please try again.", "error");
+            } finally {
+                submitting = false;
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.removeAttribute("aria-busy");
+                    submitButton.textContent = idleLabel;
+                }
             }
         });
     });
@@ -1065,6 +1322,80 @@ function initHeader() {
     window.addEventListener("scroll", update, { passive: true });
 }
 
+function initHeroParallax() {
+    const hero = document.querySelector(".hero--stage");
+    if (!hero) return;
+    const atmosphere = hero.querySelector(".hero-atmosphere");
+    const halo = hero.querySelector(".hero-stage__halo");
+    const disc = hero.querySelector(".hero-stage__disc");
+    if (!atmosphere || !halo || !disc) return;
+
+    let frame = 0;
+    const reset = () => {
+        atmosphere.style.transform = "";
+        halo.style.transform = "";
+        disc.style.transform = "";
+    };
+    const update = () => {
+        frame = 0;
+        if (reduceMotionQuery.matches) {
+            reset();
+            return;
+        }
+        const rect = hero.getBoundingClientRect();
+        if (rect.bottom <= 0 || rect.top >= window.innerHeight) return;
+        const progress = Math.min(Math.max(-rect.top / rect.height, 0), 1);
+        atmosphere.style.transform = `translate3d(0, ${(progress * 26).toFixed(1)}px, 0)`;
+        halo.style.transform = `translate3d(0, ${(progress * 14).toFixed(1)}px, 0)`;
+        disc.style.transform = `translate3d(0, ${(progress * -8).toFixed(1)}px, 0)`;
+    };
+    const request = () => {
+        if (!frame) frame = requestAnimationFrame(update);
+    };
+
+    window.addEventListener("scroll", request, { passive: true });
+    window.addEventListener("resize", request);
+    reduceMotionQuery.addEventListener("change", () => {
+        reset();
+        request();
+    });
+    update();
+}
+
+function initScrollReveal() {
+    if (reduceMotionQuery.matches || !("IntersectionObserver" in window)) return;
+
+    const targets = Array.from(
+        document.querySelectorAll(
+            ".section-head, .neighbourhoods, .feature-grid, .process, .cta-band, .contact-layout, .faq-section"
+        )
+    ).filter((element) => element.getClientRects().length && element.getBoundingClientRect().top > window.innerHeight);
+
+    if (!targets.length) return;
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            for (const entry of entries) {
+                if (!entry.isIntersecting) continue;
+                entry.target.classList.add("is-revealed");
+                observer.unobserve(entry.target);
+            }
+        },
+        { threshold: 0.06, rootMargin: "0px 0px -6% 0px" }
+    );
+
+    targets.forEach((element) => {
+        element.classList.add("reveal-ready");
+        observer.observe(element);
+    });
+
+    reduceMotionQuery.addEventListener("change", () => {
+        if (!reduceMotionQuery.matches) return;
+        targets.forEach((element) => element.classList.add("is-revealed"));
+        observer.disconnect();
+    });
+}
+
 function initYear() {
     document.querySelectorAll("[data-year]").forEach((element) => {
         element.textContent = String(new Date().getFullYear());
@@ -1073,7 +1404,10 @@ function initYear() {
 
 initNav();
 initHeader();
+initHeroParallax();
+initScrollReveal();
 initYear();
+initHeroPhoto();
 initFeatured();
 initListings();
 initProperty();

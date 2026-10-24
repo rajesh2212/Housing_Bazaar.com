@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin portal — Housing Baazar</title>
+    <meta name="description" content="Administrator tools for Housing Baazar homes and member accounts.">
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#f5eaf6">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="appearance.css">
+    <script src="js/appearance-boot.js"></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html" aria-label="Housing Baazar home">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.5 12 3l8.5 7.5"/><path d="M5.5 9v11h13V9"/><path d="M10 20v-5.5h4V20"/></svg>
+                </span>
+                Housing Baazar
+            </a>
+            <div class="appearance-slot" data-appearance-slot>
+                <button class="appearance-trigger" type="button" data-appearance-trigger aria-label="Appearance settings" aria-haspopup="dialog" title="Appearance settings">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="4.5" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="12" cy="19.5" r="1.7"/></svg>
+                </button>
+            </div>
+            <nav class="site-nav" id="site-nav" aria-label="Main">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="listings.html">Homes</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li class="nav-admin" data-admin-nav hidden><a href="admin.html" aria-current="page">Admin</a></li>
+                    <li class="nav-account-mobile"><a href="account.html" data-account-link>Your account</a></li>
+                    <li class="nav-cta-mobile"><a class="btn btn--primary btn--block" href="contact.html">List your home</a></li>
+                </ul>
+            </nav>
+            <a class="btn btn--primary header-cta" href="contact.html">List your home</a>
+            <a class="account-slot" href="login.html" data-account-slot aria-label="Your account">
+                <span class="account-slot__avatar" data-account-avatar aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"/><path d="M4.5 20c.7-3.6 3.4-5.5 7.5-5.5s6.8 1.9 7.5 5.5"/></svg>
+                </span>
+                <span class="account-slot__name" data-account-name>Account</span>
+            </a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-hero admin-hero">
+            <div class="container">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="sep" aria-hidden="true">/</span>
+                    <a href="account.html">Your account</a>
+                    <span class="sep" aria-hidden="true">/</span>
+                    <span aria-current="page">Admin</span>
+                </nav>
+                <span class="eyebrow">Administrators only</span>
+                <h1>Keep the collection current.</h1>
+                <p>Add and update homes, manage photos, and review the renters who have joined. Archived homes leave the public site immediately.</p>
+            </div>
+        </section>
+
+        <section class="admin-section">
+            <div class="container">
+                <div class="admin-tabs" role="tablist" aria-label="Admin areas">
+                    <button class="admin-tab" id="admin-tab-members" type="button" role="tab" aria-selected="true" aria-controls="admin-panel-members" tabindex="0" data-admin-tab="members">
+                        Members
+                        <span class="admin-tab__count" data-member-tab-count>—</span>
+                    </button>
+                    <button class="admin-tab" id="admin-tab-homes" type="button" role="tab" aria-selected="false" aria-controls="admin-panel-homes" tabindex="-1" data-admin-tab="homes">
+                        Homes
+                        <span class="admin-tab__count" data-property-tab-count>—</span>
+                    </button>
+                </div>
+
+                <section class="admin-panel" id="admin-panel-members" role="tabpanel" aria-labelledby="admin-tab-members" data-admin-panel="members" tabindex="0">
+                    <div class="admin-panel__head">
+                        <div>
+                            <h2>Registered members</h2>
+                            <p>A private, read-only roster. Password hashes, reset tokens and session secrets are never returned by the API.</p>
+                        </div>
+                    </div>
+
+                    <form class="admin-filters" data-admin-filters role="search" aria-label="Filter registered members">
+                        <div class="field admin-filters__search">
+                            <label for="admin-q">Search by name or email</label>
+                            <input id="admin-q" name="q" type="search" placeholder="Try “Priya” or “@example.com”" maxlength="80" autocomplete="off">
+                        </div>
+                        <div class="field">
+                            <label for="admin-bhk">BHK preference</label>
+                            <select id="admin-bhk" name="bhk">
+                                <option value="all">All preferences</option>
+                                <option value="1">1 BHK</option>
+                                <option value="2">2 BHK</option>
+                                <option value="3">3 BHK</option>
+                                <option value="4">4 BHK</option>
+                                <option value="5+">5+ BHK</option>
+                            </select>
+                        </div>
+                        <div class="admin-filters__actions">
+                            <button class="btn btn--primary" type="submit">Search</button>
+                            <button class="btn btn--ghost" type="button" data-admin-clear>Clear</button>
+                        </div>
+                    </form>
+
+                    <div class="admin-summary">
+                        <p class="admin-count" data-admin-count aria-live="polite">Loading profiles…</p>
+                        <p class="admin-total"><span data-admin-total></span> · Private member data</p>
+                    </div>
+
+                    <div class="admin-loading" data-admin-loading>
+                        <span class="spinner" aria-hidden="true"></span>
+                        <p>Loading registered profiles…</p>
+                    </div>
+
+                    <div class="admin-error" data-admin-error hidden>
+                        <h2>The member list couldn't be loaded.</h2>
+                        <p data-admin-error-message>Check your connection and try again.</p>
+                        <button class="btn btn--primary" type="button" data-admin-retry>Try again</button>
+                    </div>
+
+                    <div class="admin-empty" data-admin-empty hidden>
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+                        <h2>No profiles match those filters.</h2>
+                        <p>Try a different name, email or BHK preference.</p>
+                        <button class="btn btn--ghost" type="button" data-admin-reset>Clear filters</button>
+                    </div>
+
+                    <div class="admin-list" data-admin-list aria-live="polite" aria-busy="true"></div>
+
+                    <nav class="admin-pagination" data-admin-pagination aria-label="Member pages" hidden>
+                        <button class="btn btn--ghost" type="button" data-admin-prev>Previous</button>
+                        <p data-admin-page>Page 1 of 1</p>
+                        <button class="btn btn--ghost" type="button" data-admin-next>Next</button>
+                    </nav>
+                </section>
+
+                <section class="admin-panel" id="admin-panel-homes" role="tabpanel" aria-labelledby="admin-tab-homes" data-admin-panel="homes" tabindex="0" hidden>
+                    <div class="admin-panel__head">
+                        <div>
+                            <h2>Homes on the site</h2>
+                            <p>Every card, search result, featured slot and property page reads from this list. Save a home first, then add its photos.</p>
+                        </div>
+                        <button class="btn btn--primary" type="button" data-property-new>
+                            <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                            Add a home
+                        </button>
+                    </div>
+
+                    <form class="admin-filters admin-filters--properties" data-property-filters role="search" aria-label="Filter homes">
+                        <div class="field admin-filters__search">
+                            <label for="admin-property-q">Search homes</label>
+                            <input id="admin-property-q" name="q" type="search" placeholder="Try “Patia”, “villa” or “Puri”" maxlength="80" autocomplete="off">
+                        </div>
+                        <div class="field">
+                            <label for="admin-property-status">Status</label>
+                            <select id="admin-property-status" name="status">
+                                <option value="all">All homes</option>
+                                <option value="active">Active</option>
+                                <option value="archived">Archived</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label for="admin-property-type">Home type</label>
+                            <select id="admin-property-type" name="type">
+                                <option value="all">All types</option>
+                                <option value="Apartment">Apartment</option>
+                                <option value="Villa">Villa</option>
+                                <option value="Townhouse">Townhouse</option>
+                                <option value="Studio">Studio</option>
+                            </select>
+                        </div>
+                        <div class="admin-filters__actions">
+                            <button class="btn btn--primary" type="submit">Apply</button>
+                            <button class="btn btn--ghost" type="button" data-property-clear>Clear</button>
+                        </div>
+                    </form>
+
+                    <p class="admin-status" data-property-status role="status" aria-live="polite" hidden></p>
+
+                    <div class="admin-summary">
+                        <p class="admin-count" data-property-count aria-live="polite">Loading homes…</p>
+                        <p class="admin-total"><span data-property-total></span> · Includes archived homes</p>
+                    </div>
+
+                    <div class="admin-loading" data-property-loading>
+                        <span class="spinner" aria-hidden="true"></span>
+                        <p>Loading homes…</p>
+                    </div>
+
+                    <div class="admin-error" data-property-error hidden>
+                        <h2>The home list couldn't be loaded.</h2>
+                        <p data-property-error-message>Check your connection and try again.</p>
+                        <button class="btn btn--primary" type="button" data-property-retry>Try again</button>
+                    </div>
+
+                    <div class="admin-empty" data-property-empty hidden>
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3.5 10.5 12 3l8.5 7.5"/><path d="M5.5 9v11h13V9"/><path d="M10 20v-5.5h4V20"/></svg>
+                        <h2>No homes match those filters.</h2>
+                        <p>Try a different search, status or home type — or add a new home.</p>
+                        <button class="btn btn--ghost" type="button" data-property-reset>Clear filters</button>
+                    </div>
+
+                    <div class="admin-list admin-list--properties" data-property-list aria-live="polite" aria-busy="true"></div>
+
+                    <nav class="admin-pagination" data-property-pagination aria-label="Home pages" hidden>
+                        <button class="btn btn--ghost" type="button" data-property-prev>Previous</button>
+                        <p data-property-page>Page 1 of 1</p>
+                        <button class="btn btn--ghost" type="button" data-property-next>Next</button>
+                    </nav>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <dialog class="admin-dialog" id="property-dialog" aria-labelledby="property-dialog-title">
+        <form class="admin-dialog__panel admin-dialog__form" data-property-form novalidate>
+            <div class="admin-dialog__head">
+                <div>
+                    <span class="eyebrow" data-property-dialog-eyebrow>New home</span>
+                    <h2 id="property-dialog-title" data-property-dialog-title>Add a home</h2>
+                </div>
+                <button class="admin-dialog__close" type="button" data-dialog-close aria-label="Close home editor">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+                </button>
+            </div>
+
+            <div class="admin-dialog__body">
+                <p class="form-status" data-property-form-status role="status" aria-live="polite" hidden></p>
+
+                <div class="admin-form-grid">
+                    <div class="field admin-form-grid__wide">
+                        <label for="property-title">Title</label>
+                        <input id="property-title" name="title" type="text" required minlength="5" maxlength="120" placeholder="e.g. Bright 2BHK near Patia Square" autocomplete="off">
+                    </div>
+                    <div class="field">
+                        <label for="property-city">City</label>
+                        <select id="property-city" name="city" required>
+                            <option value="Bhubaneswar">Bhubaneswar</option>
+                            <option value="Cuttack">Cuttack</option>
+                            <option value="Puri">Puri</option>
+                            <option value="Rourkela">Rourkela</option>
+                            <option value="Sambalpur">Sambalpur</option>
+                            <option value="Berhampur">Berhampur</option>
+                            <option value="Balasore">Balasore</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="property-locality">Locality</label>
+                        <input id="property-locality" name="locality" type="text" required minlength="2" maxlength="80" placeholder="e.g. Patia" autocomplete="off">
+                    </div>
+                    <div class="field">
+                        <label for="property-type">Home type</label>
+                        <select id="property-type" name="type" required>
+                            <option value="Apartment">Apartment</option>
+                            <option value="Villa">Villa</option>
+                            <option value="Townhouse">Townhouse</option>
+                            <option value="Studio">Studio</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="property-furnishing">Furnishing</label>
+                        <select id="property-furnishing" name="furnishing" required>
+                            <option value="Fully furnished">Fully furnished</option>
+                            <option value="Semi-furnished">Semi-furnished</option>
+                            <option value="Unfurnished">Unfurnished</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="property-price">Monthly rent (₹)</label>
+                        <input id="property-price" name="price" type="number" inputmode="numeric" required min="1000" max="10000000" step="1" placeholder="24000">
+                    </div>
+                    <div class="field">
+                        <label for="property-deposit">Security deposit (₹)</label>
+                        <input id="property-deposit" name="deposit" type="number" inputmode="numeric" required min="0" max="100000000" step="1" placeholder="48000">
+                    </div>
+                    <div class="field">
+                        <label for="property-bedrooms">Bedrooms</label>
+                        <input id="property-bedrooms" name="bedrooms" type="number" inputmode="numeric" required min="1" max="20" step="1" placeholder="2">
+                    </div>
+                    <div class="field">
+                        <label for="property-bathrooms">Bathrooms</label>
+                        <input id="property-bathrooms" name="bathrooms" type="number" inputmode="numeric" required min="1" max="20" step="1" placeholder="2">
+                    </div>
+                    <div class="field">
+                        <label for="property-area">Area (sq ft)</label>
+                        <input id="property-area" name="areaSqft" type="number" inputmode="numeric" required min="100" max="100000" step="1" placeholder="1150">
+                    </div>
+                    <div class="field">
+                        <label for="property-available">Available from</label>
+                        <input id="property-available" name="availableFrom" type="date">
+                        <p class="field-hint">Leave blank to show “Immediately”.</p>
+                    </div>
+                    <div class="field admin-form-grid__wide">
+                        <label for="property-tags">Tags <span class="field-optional">(optional)</span></label>
+                        <input id="property-tags" name="tags" type="text" maxlength="320" placeholder="Featured, Private pool, Premium" autocomplete="off">
+                        <p class="field-hint">Comma-separated, up to eight. These appear as chips on the property page.</p>
+                    </div>
+                    <div class="field admin-form-grid__wide">
+                        <label for="property-description">Description</label>
+                        <textarea id="property-description" name="description" rows="5" required minlength="20" maxlength="4000" placeholder="What makes this home worth living in?"></textarea>
+                    </div>
+                    <div class="field admin-form-grid__wide">
+                        <label for="property-neighbourhood">Neighbourhood</label>
+                        <textarea id="property-neighbourhood" name="neighbourhood" rows="3" required minlength="10" maxlength="500" placeholder="Describe the area, transport and everyday conveniences."></textarea>
+                    </div>
+                    <div class="field admin-form-grid__wide">
+                        <label for="property-amenities">Amenities</label>
+                        <textarea id="property-amenities" name="amenities" rows="3" required placeholder="Covered parking, Power backup, Private balcony"></textarea>
+                        <p class="field-hint">Comma or line separated, up to 24. At least one is required.</p>
+                    </div>
+                    <label class="admin-check admin-form-grid__wide" for="property-featured">
+                        <input id="property-featured" name="featured" type="checkbox">
+                        <span>
+                            <strong>Feature on the homepage</strong>
+                            <small>Featured homes fill the homepage spotlight and rank first in search.</small>
+                        </span>
+                    </label>
+                </div>
+
+                <fieldset class="admin-images" data-property-images hidden>
+                    <legend>Photos</legend>
+                    <div class="admin-images__grid">
+                        <div class="admin-image-card">
+                            <p class="admin-image-card__label">Cover photo</p>
+                            <div class="admin-image-card__preview">
+                                <img data-cover-preview src="images/property-placeholder.svg" alt="Current cover photo" width="320" height="200">
+                            </div>
+                            <div class="admin-image-card__actions">
+                                <label class="btn btn--ghost btn--sm" for="cover-upload">Replace cover</label>
+                                <input class="sr-only" id="cover-upload" type="file" accept="image/jpeg,image/png,image/webp" data-cover-input>
+                                <button class="btn btn--ghost btn--sm" type="button" data-cover-remove>Remove</button>
+                            </div>
+                        </div>
+                        <div class="admin-image-card admin-image-card--gallery">
+                            <p class="admin-image-card__label">Gallery <span class="admin-image-count" data-gallery-count>0 / 12</span></p>
+                            <div class="admin-gallery" data-gallery-list></div>
+                            <div class="admin-image-card__actions">
+                                <label class="btn btn--ghost btn--sm" for="gallery-upload">Add photos</label>
+                                <input class="sr-only" id="gallery-upload" type="file" accept="image/jpeg,image/png,image/webp" multiple data-gallery-input>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="field-hint">JPEG, PNG or WebP up to 8 MB each. Uploads are resized, converted to WebP and stored outside source control. Up to 12 gallery photos.</p>
+                    <p class="form-status" data-image-status role="status" aria-live="polite"></p>
+                </fieldset>
+
+                <p class="admin-dialog__note" data-photo-hint>Save this home first, then reopen it to add a cover photo and gallery.</p>
+            </div>
+
+            <div class="admin-dialog__actions">
+                <button class="btn btn--ghost" type="button" data-dialog-close>Cancel</button>
+                <button class="btn btn--primary" type="submit" data-property-save>Save home</button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog class="admin-dialog admin-dialog--confirm" id="confirm-dialog" aria-labelledby="confirm-title">
+        <div class="admin-dialog__panel">
+            <div class="admin-dialog__head">
+                <div>
+                    <span class="eyebrow">Please confirm</span>
+                    <h2 id="confirm-title" data-confirm-title>Archive this home?</h2>
+                </div>
+            </div>
+            <div class="admin-dialog__body">
+                <p data-confirm-message></p>
+            </div>
+            <div class="admin-dialog__actions">
+                <button class="btn btn--ghost" type="button" data-confirm-cancel>Keep it</button>
+                <button class="btn btn--danger" type="button" data-confirm-accept>Archive home</button>
+            </div>
+        </div>
+    </dialog>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a class="brand" href="index.html" aria-label="Housing Baazar home">
+                        <span class="brand-mark" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.5 12 3l8.5 7.5"/><path d="M5.5 9v11h13V9"/><path d="M10 20v-5.5h4V20"/></svg>
+                        </span>
+                        Housing Baazar
+                    </a>
+                    <p>Curated rental homes across Odisha. Thoughtful spaces, honest details, and straightforward renting.</p>
+                </div>
+                <div class="footer-col">
+                    <h2>Explore</h2>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="listings.html">Homes</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="account.html" data-account-link>Your account</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h2>Neighbourhoods</h2>
+                    <ul>
+                        <li><a href="listings.html?q=Patia">Patia, Bhubaneswar</a></li>
+                        <li><a href="listings.html?q=Buxi%20Bazaar">Buxi Bazaar, Cuttack</a></li>
+                        <li><a href="listings.html?q=Baliapanda">Baliapanda, Puri</a></li>
+                        <li><a href="listings.html?q=Civil%20Township">Civil Township, Rourkela</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h2>Contact</h2>
+                    <ul>
+                        <li><a href="mailto:support@housingbaazar.com">support@housingbaazar.com</a></li>
+                        <li><a href="tel:+916371618670">+91 63716 18670</a></li>
+                        <li>Bhubaneswar, Odisha, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© <span data-year>2026</span> Housing Baazar. All rights reserved.</p>
+                <p>Demo listings · Prices in INR</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script src="js/appearance.js"></script>
+    <script src="js/auth-client.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+
+</html>

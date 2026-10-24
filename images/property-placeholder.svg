@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title">
+    <title id="title">Photo coming soon</title>
+    <defs>
+        <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#fbf8f3"/>
+            <stop offset="0.55" stop-color="#f3ece2"/>
+            <stop offset="1" stop-color="#eadfd1"/>
+        </linearGradient>
+        <radialGradient id="glow" cx="0.7" cy="0.22" r="0.75">
+            <stop offset="0" stop-color="#ff6a1a" stop-opacity="0.24"/>
+            <stop offset="1" stop-color="#ff6a1a" stop-opacity="0"/>
+        </radialGradient>
+        <pattern id="grain" width="6" height="6" patternUnits="userSpaceOnUse">
+            <circle cx="1" cy="1" r="0.7" fill="#1c1916" opacity="0.035"/>
+            <circle cx="4" cy="4" r="0.5" fill="#1c1916" opacity="0.025"/>
+        </pattern>
+    </defs>
+    <rect width="1200" height="800" fill="url(#paper)"/>
+    <rect width="1200" height="800" fill="url(#glow)"/>
+    <rect width="1200" height="800" fill="url(#grain)"/>
+    <g fill="none" stroke="#c2541c" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" opacity="0.82">
+        <path d="M380 408 600 226l220 182"/>
+        <path d="M432 382v208h336V382"/>
+        <path d="M552 590V470h96v120"/>
+    </g>
+    <g fill="#1c1916" opacity="0.7" font-family="Fraunces, Georgia, serif" text-anchor="middle">
+        <text x="600" y="682" font-size="42" letter-spacing="1">A photo is on its way</text>
+    </g>
+    <g fill="#1c1916" opacity="0.42" font-family="Inter, Arial, sans-serif" text-anchor="middle">
+        <text x="600" y="726" font-size="22" letter-spacing="2.4">HOUSING BAAZAR</text>
+    </g>
+</svg>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your account — Housing Baazar</title>
+    <meta name="description" content="Manage your Housing Baazar profile, household details, BHK preference and profile photo.">
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#f5eaf6">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="appearance.css">
+    <script src="js/appearance-boot.js"></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html" aria-label="Housing Baazar home">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.5 12 3l8.5 7.5"/><path d="M5.5 9v11h13V9"/><path d="M10 20v-5.5h4V20"/></svg>
+                </span>
+                Housing Baazar
+            </a>
+            <div class="appearance-slot" data-appearance-slot>
+                <button class="appearance-trigger" type="button" data-appearance-trigger aria-label="Appearance settings" aria-haspopup="dialog" title="Appearance settings">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="4.5" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="12" cy="19.5" r="1.7"/></svg>
+                </button>
+            </div>
+            <nav class="site-nav" id="site-nav" aria-label="Main">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="listings.html">Homes</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li class="nav-admin" data-admin-nav hidden><a href="admin.html">Admin</a></li>
+                    <li class="nav-account-mobile"><a href="account.html" data-account-link>Your account</a></li>
+                    <li class="nav-cta-mobile"><a class="btn btn--primary btn--block" href="contact.html">List your home</a></li>
+                </ul>
+            </nav>
+            <a class="btn btn--primary header-cta" href="contact.html">List your home</a>
+            <a class="account-slot" href="login.html" data-account-slot aria-label="Your account">
+                <span class="account-slot__avatar" data-account-avatar aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"/><path d="M4.5 20c.7-3.6 3.4-5.5 7.5-5.5s6.8 1.9 7.5 5.5"/></svg>
+                </span>
+                <span class="account-slot__name" data-account-name>Account</span>
+            </a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-hero account-hero">
+            <div class="container">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="sep" aria-hidden="true">/</span>
+                    <span aria-current="page">Your account</span>
+                </nav>
+                <span class="eyebrow">Private to you</span>
+                <h1>Your account.</h1>
+                <p>Keep your household details and home preferences up to date. Changes are saved to your account, not just this browser.</p>
+            </div>
+        </section>
+
+        <section class="account-section">
+            <div class="container">
+                <p class="form-status account-status" data-account-status role="status" aria-live="polite" aria-atomic="true" tabindex="-1"></p>
+
+                <div class="account-loading" data-account-loading>
+                    <span class="spinner" aria-hidden="true"></span>
+                    <p>Loading your account…</p>
+                </div>
+
+                <div class="account-error" data-account-error hidden>
+                    <h2>We couldn't load your account.</h2>
+                    <p>Check your connection and try again. If the problem continues, sign in again.</p>
+                    <button class="btn btn--primary" type="button" data-retry-profile>Try again</button>
+                </div>
+
+                <div class="account-layout" data-account-content hidden>
+                    <aside class="account-card" aria-labelledby="account-name-heading">
+                        <div class="account-avatar" data-account-avatar-large aria-hidden="true"></div>
+                        <h2 id="account-name-heading" data-account-display-name>Your profile</h2>
+                        <p class="account-email" data-account-display-email></p>
+                        <span class="badge badge--accent" data-account-role hidden>Administrator</span>
+                        <p class="account-since">Member since <span data-account-since>—</span></p>
+
+                        <div class="photo-block">
+                            <h3>Profile photo</h3>
+                            <div class="photo-actions">
+                                <input class="photo-input" id="photo-input" type="file" accept="image/jpeg,image/png,image/webp">
+                                <label class="btn btn--ghost photo-picker" for="photo-input">Choose photo</label>
+                                <button class="btn btn--ghost" type="button" data-remove-photo hidden>Remove photo</button>
+                            </div>
+                            <div class="photo-save" data-photo-actions hidden>
+                                <button class="btn btn--primary" type="button" data-save-photo>Save photo</button>
+                                <button class="btn btn--ghost" type="button" data-cancel-photo>Cancel</button>
+                            </div>
+                            <div class="upload-progress" data-upload-progress hidden>
+                                <progress max="100" value="0" data-upload-bar aria-label="Photo upload progress"></progress>
+                                <span data-upload-text aria-live="polite">Uploading…</span>
+                            </div>
+                            <p class="photo-note" data-photo-note>JPEG, PNG or WebP, up to 5 MB. Photos are cropped to a square.</p>
+                            <p class="photo-note">Your photo is visible only to you and site administrators.</p>
+                        </div>
+
+                        <div class="account-actions">
+                            <a class="btn btn--ghost" href="admin.html" data-admin-link hidden>Open admin portal</a>
+                            <button class="btn btn--ghost" type="button" data-signout>Sign out</button>
+                        </div>
+                    </aside>
+
+                    <section class="account-panel" aria-labelledby="profile-heading">
+                        <div class="account-panel__head">
+                            <span class="eyebrow">Your details</span>
+                            <h2 id="profile-heading">Profile details</h2>
+                            <p>These details stay with your account when you sign out and come back.</p>
+                        </div>
+                        <form class="account-form" data-profile-form novalidate>
+                            <div class="form-grid">
+                                <div class="field">
+                                    <label for="account-name">Full name</label>
+                                    <input id="account-name" name="fullName" type="text" autocomplete="name" required>
+                                </div>
+                                <div class="field">
+                                    <label for="account-email">Email</label>
+                                    <input id="account-email" name="email" type="email" autocomplete="email" readonly aria-describedby="account-email-note">
+                                    <p class="field-hint" id="account-email-note">Your email is read-only. Contact support if it needs to change.</p>
+                                </div>
+                                <div class="field">
+                                    <label for="account-household">Household members</label>
+                                    <select id="account-household" name="householdMembers" autocomplete="off" required>
+                                        <option value="1">1 member</option>
+                                        <option value="2">2 members</option>
+                                        <option value="3">3 members</option>
+                                        <option value="4">4 members</option>
+                                        <option value="5">5 members</option>
+                                        <option value="6">6 members</option>
+                                        <option value="7">7 members</option>
+                                        <option value="8">8 members</option>
+                                        <option value="9">9 members</option>
+                                        <option value="10">10 members</option>
+                                        <option value="11">11 members</option>
+                                        <option value="12">12 members</option>
+                                        <option value="13">13 members</option>
+                                        <option value="14">14 members</option>
+                                        <option value="15">15 members</option>
+                                        <option value="16">16 members</option>
+                                        <option value="17">17 members</option>
+                                        <option value="18">18 members</option>
+                                        <option value="19">19 members</option>
+                                        <option value="20">20 members</option>
+                                    </select>
+                                </div>
+                                <fieldset class="field choice-field field--full">
+                                    <legend>BHK preference</legend>
+                                    <div class="choice-grid">
+                                        <label class="choice"><input type="radio" name="bhkPreference" value="1" required><span>1 BHK</span></label>
+                                        <label class="choice"><input type="radio" name="bhkPreference" value="2"><span>2 BHK</span></label>
+                                        <label class="choice"><input type="radio" name="bhkPreference" value="3"><span>3 BHK</span></label>
+                                        <label class="choice"><input type="radio" name="bhkPreference" value="4"><span>4 BHK</span></label>
+                                        <label class="choice"><input type="radio" name="bhkPreference" value="5+"><span>5+ BHK</span></label>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div class="account-form__actions">
+                                <button class="btn btn--primary" type="submit">Save changes</button>
+                                <p class="form-status" data-profile-status role="status" aria-live="polite" aria-atomic="true" tabindex="-1"></p>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a class="brand" href="index.html" aria-label="Housing Baazar home">
+                        <span class="brand-mark" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.5 12 3l8.5 7.5"/><path d="M5.5 9v11h13V9"/><path d="M10 20v-5.5h4V20"/></svg>
+                        </span>
+                        Housing Baazar
+                    </a>
+                    <p>Curated rental homes across Odisha. Thoughtful spaces, honest details, and straightforward renting.</p>
+                </div>
+                <div class="footer-col">
+                    <h2>Explore</h2>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="listings.html">Homes</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="account.html" data-account-link>Your account</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h2>Neighbourhoods</h2>
+                    <ul>
+                        <li><a href="listings.html?q=Patia">Patia, Bhubaneswar</a></li>
+                        <li><a href="listings.html?q=Buxi%20Bazaar">Buxi Bazaar, Cuttack</a></li>
+                        <li><a href="listings.html?q=Baliapanda">Baliapanda, Puri</a></li>
+                        <li><a href="listings.html?q=Civil%20Township">Civil Township, Rourkela</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h2>Contact</h2>
+                    <ul>
+                        <li><a href="mailto:support@housingbaazar.com">support@housingbaazar.com</a></li>
+                        <li><a href="tel:+916371618670">+91 63716 18670</a></li>
+                        <li>Bhubaneswar, Odisha, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© <span data-year>2026</span> Housing Baazar. All rights reserved.</p>
+                <p>Demo listings · Prices in INR</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script src="js/appearance.js"></script>
+    <script src="js/auth-client.js"></script>
+    <script src="js/account.js"></script>
+</body>
+
+</html>

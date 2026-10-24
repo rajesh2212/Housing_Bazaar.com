@@ -1,3 +1,11 @@
+# Runtime and local data
+node_modules/
+.env
+data/
+storage/
+
+# Tooling output
 .qoder/screenshots*
 housing-baazar-launch/.hyperframes/
 housing-baazar-launch/.thumbnails/
+*.log

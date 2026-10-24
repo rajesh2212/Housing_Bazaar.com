@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access denied — Housing Baazar</title>
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#f5eaf6">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="appearance.css">
+    <script src="js/appearance-boot.js"></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html" aria-label="Housing Baazar home">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.5 12 3l8.5 7.5"/><path d="M5.5 9v11h13V9"/><path d="M10 20v-5.5h4V20"/></svg>
+                </span>
+                Housing Baazar
+            </a>
+            <div class="appearance-slot" data-appearance-slot>
+                <button class="appearance-trigger" type="button" data-appearance-trigger aria-label="Appearance settings" aria-haspopup="dialog" title="Appearance settings">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="4.5" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="12" cy="19.5" r="1.7"/></svg>
+                </button>
+            </div>
+            <nav class="site-nav" id="site-nav" aria-label="Main">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="listings.html">Homes</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li class="nav-admin" data-admin-nav hidden><a href="admin.html">Admin</a></li>
+                    <li class="nav-account-mobile"><a href="login.html" data-account-link>Sign in</a></li>
+                </ul>
+            </nav>
+            <a class="btn btn--primary header-cta" href="contact.html">List your home</a>
+            <a class="account-slot" href="login.html" data-account-slot aria-label="Sign in to your account">
+                <span class="account-slot__avatar" data-account-avatar aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"/><path d="M4.5 20c.7-3.6 3.4-5.5 7.5-5.5s6.8 1.9 7.5 5.5"/></svg>
+                </span>
+                <span class="account-slot__name" data-account-name>Sign in</span>
+            </a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="status-page">
+            <div class="container">
+                <div class="status-card">
+                    <span class="status-code" aria-hidden="true">403</span>
+                    <span class="eyebrow">Access denied</span>
+                    <h1>This area is for administrators.</h1>
+                    <p>Your account doesn't have access to the admin portal. If you believe this is a mistake, contact the site owner.</p>
+                    <div class="status-actions">
+                        <a class="btn btn--primary" href="account.html">Go to your account</a>
+                        <a class="btn btn--ghost" href="listings.html">Browse homes</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer site-footer--compact">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>© <span data-year>2026</span> Housing Baazar. All rights reserved.</p>
+                <p><a href="contact.html">Contact</a> · <a href="index.html">Home</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script src="js/appearance.js"></script>
+    <script src="js/auth-client.js"></script>
+</body>
+
+</html>

@@ -4,13 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Housing Baazar — Rental homes across Delhi NCR</title>
-    <meta name="description" content="Hand-picked rental homes across Delhi NCR. Honest pricing, real details, and a single point of contact from first message to move-in.">
+    <title>Housing Baazar — Rental homes across Odisha</title>
+    <meta name="description" content="Hand-picked rental homes across Bhubaneswar, Cuttack, Puri and more of Odisha. Honest pricing, real details, and a single point of contact from first message to move-in.">
+    <meta name="theme-color" content="#f5eaf6">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="image" href="images/hero-house-cutout.webp" imagesrcset="images/hero-house-cutout-400.webp 400w, images/hero-house-cutout-640.webp 640w, images/hero-house-cutout-800.webp 800w, images/hero-house-cutout.webp 1108w" imagesizes="(max-width: 900px) calc(100vw - 48px), 56vw" fetchpriority="high">
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="appearance.css">
+    <script src="js/appearance-boot.js"></script>
 </head>
 
 <body>
@@ -24,16 +28,28 @@
                 </span>
                 Housing Baazar
             </a>
+            <div class="appearance-slot" data-appearance-slot>
+                <button class="appearance-trigger" type="button" data-appearance-trigger aria-label="Appearance settings" aria-haspopup="dialog" title="Appearance settings">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="4.5" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="12" cy="19.5" r="1.7"/></svg>
+                </button>
+            </div>
             <nav class="site-nav" id="site-nav" aria-label="Main">
                 <ul>
                     <li><a href="index.html" aria-current="page">Home</a></li>
                     <li><a href="listings.html">Homes</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="login.html">Sign in</a></li>
-                    <li class="nav-cta-mobile"><a class="btn btn--primary btn--block" href="contact.html">List your home</a></li>
+                    <li class="nav-admin" data-admin-nav hidden><a href="admin.html">Admin</a></li>
+                    <li class="nav-account-mobile"><a href="login.html" data-account-link>Sign in</a></li>
+                    <li class="nav-cta-mobile"><a class="btn btn--primary btn--block" href="contact.html?interest=list">List your home</a></li>
                 </ul>
             </nav>
-            <a class="btn btn--primary header-cta" href="contact.html">List your home</a>
+            <a class="btn btn--primary header-cta" href="contact.html?interest=list">List your home</a>
+            <a class="account-slot" href="login.html" data-account-slot aria-label="Sign in to your account">
+                <span class="account-slot__avatar" data-account-avatar aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"/><path d="M4.5 20c.7-3.6 3.4-5.5 7.5-5.5s6.8 1.9 7.5 5.5"/></svg>
+                </span>
+                <span class="account-slot__name" data-account-name>Sign in</span>
+            </a>
             <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
                 <span></span><span></span><span></span>
             </button>
@@ -41,16 +57,17 @@
     </header>
 
     <main id="main">
-        <section class="hero">
+        <section class="hero hero--stage">
+            <div class="hero-atmosphere" aria-hidden="true"></div>
             <div class="container hero-grid">
                 <div class="hero-copy">
-                    <span class="eyebrow">Rentals across Delhi NCR</span>
-                    <h1>A home that feels like yours.</h1>
-                    <p class="hero-lead">Hand-picked rentals with honest pricing and real details — so you can spend less time scrolling and more time settling in.</p>
+                    <span class="eyebrow">Rentals across Odisha</span>
+                    <h1>A home that feels <em>like yours.</em></h1>
+                    <p class="hero-lead">Hand-picked rentals from Bhubaneswar to Puri, with honest pricing and real details — so you can spend less time scrolling and more time settling in.</p>
                     <form class="hero-search" action="listings.html" method="get" role="search">
                         <div class="field">
-                            <label class="sr-only" for="hero-q">Neighbourhood or home type</label>
-                            <input id="hero-q" name="q" type="search" placeholder="Try “Hauz Khas” or “villa”">
+                            <label class="sr-only" for="hero-q">Locality, city or home type</label>
+                            <input id="hero-q" name="q" type="search" placeholder="Patia or villa">
                         </div>
                         <div class="field">
                             <label class="sr-only" for="hero-type">Home type</label>
@@ -62,23 +79,34 @@
                                 <option value="Studio">Studio</option>
                             </select>
                         </div>
-                        <button class="btn btn--primary" type="submit">Search homes</button>
+                        <button class="btn btn--primary" type="submit">Search</button>
                     </form>
+                    <p class="hero-quick">Popular right now:
+                        <a href="listings.html?q=Patia">Patia</a>
+                        <a href="listings.html?q=Buxi%20Bazaar">Buxi Bazaar</a>
+                        <a href="listings.html?q=Baliapanda">Baliapanda</a>
+                    </p>
                     <div class="hero-stats">
-                        <div><strong>08</strong><span>Homes available</span></div>
-                        <div><strong>08</strong><span>Neighbourhoods</span></div>
-                        <div><strong>₹4k</strong><span>Starting rent</span></div>
+                        <div><strong data-stat-homes>—</strong><span>Homes available</span></div>
+                        <div><strong data-stat-cities>—</strong><span>Cities</span></div>
+                        <div><strong data-stat-rent>—</strong><span>Starting rent</span></div>
                     </div>
                 </div>
-                <div class="hero-media">
-                    <img src="images/hero.jpg" alt="Warm modern villa with a cream stone facade and olive trees at golden hour" width="1792" height="1024" fetchpriority="high">
-                    <div class="hero-card">
+                <div class="hero-stage">
+                    <div class="hero-stage__halo" aria-hidden="true"></div>
+                    <div class="hero-stage__disc" aria-hidden="true"></div>
+                    <img class="hero-house hero-house--cutout" data-hero-image src="images/hero-house-cutout.webp" srcset="images/hero-house-cutout-400.webp 400w, images/hero-house-cutout-640.webp 640w, images/hero-house-cutout-800.webp 800w, images/hero-house-cutout.webp 1108w" sizes="(max-width: 900px) calc(100vw - 48px), 56vw" alt="Charcoal-grey modern villa with roof terraces, warm-lit windows and a landscaped garden, shown without a background" width="1108" height="831" fetchpriority="high" decoding="async">
+                    <button class="hero-badge" type="button" data-hero-photo-toggle aria-pressed="false" aria-label="4BHK · Private pool" title="Switch the featured photo to the 4BHK · Private pool home">
+                        <span class="hero-badge__flag" aria-hidden="true">Featured</span>
+                        <span class="hero-badge__label">4BHK · Private pool</span>
+                    </button>
+                    <div class="hero-card" hidden>
                         <div>
                             <small>Featured home</small>
-                            <p class="price">Luxury 4BHK Villa</p>
-                            <p class="hero-card-loc">Chattarpur · ₹40,000/month</p>
+                            <p class="price" data-hero-title>Featured home</p>
+                            <p class="hero-card-loc" data-hero-location></p>
                         </div>
-                        <a class="hero-card-link" href="property.html?id=5" aria-label="View the Luxury 4BHK Villa with Pool">→</a>
+                        <a class="hero-card-link" data-hero-link href="listings.html" aria-label="Browse current homes">→</a>
                     </div>
                 </div>
             </div>
@@ -108,14 +136,14 @@
                     </div>
                 </div>
                 <div class="neighbourhoods">
-                    <a class="pill" href="listings.html?q=Connaught%20Place">Connaught Place</a>
-                    <a class="pill" href="listings.html?q=Lodhi%20Garden">Lodhi Garden</a>
-                    <a class="pill" href="listings.html?q=Rajghat">Rajghat</a>
-                    <a class="pill" href="listings.html?q=Hauz%20Khas">Hauz Khas</a>
-                    <a class="pill" href="listings.html?q=Chattarpur">Chattarpur</a>
-                    <a class="pill" href="listings.html?q=Saket">Saket</a>
-                    <a class="pill" href="listings.html?q=Vasant%20Kunj">Vasant Kunj</a>
-                    <a class="pill" href="listings.html?q=Gurugram">Gurugram</a>
+                    <a class="pill" href="listings.html?q=Patia">Patia, Bhubaneswar</a>
+                    <a class="pill" href="listings.html?q=Jaydev%20Vihar">Jaydev Vihar, Bhubaneswar</a>
+                    <a class="pill" href="listings.html?q=Buxi%20Bazaar">Buxi Bazaar, Cuttack</a>
+                    <a class="pill" href="listings.html?q=Baliapanda">Baliapanda, Puri</a>
+                    <a class="pill" href="listings.html?q=Civil%20Township">Civil Township, Rourkela</a>
+                    <a class="pill" href="listings.html?q=Ainthapali">Ainthapali, Sambalpur</a>
+                    <a class="pill" href="listings.html?q=Gandhi%20Nagar">Gandhi Nagar, Berhampur</a>
+                    <a class="pill" href="listings.html?q=Sahadevkhunta">Sahadevkhunta, Balasore</a>
                 </div>
             </div>
         </section>
@@ -142,19 +170,38 @@
                     <article class="feature">
                         <span class="feature-num">03</span>
                         <h3>Homes we'd live in</h3>
-                        <p>Each listing is visited and photographed before it goes live. What you see in the photos is what you walk into.</p>
+                        <p>Each shortlist is built around light, layout, and location. Rent, deposit, furnishing, and amenities sit together on the page, so you can compare what matters.</p>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section class="section section--paper" aria-labelledby="quote-heading">
-            <div class="container quote">
-                <h2 class="sr-only" id="quote-heading">What renters say</h2>
-                <figure>
-                    <blockquote>We found a place in ten days — and the living room looks exactly like the photos.</blockquote>
-                    <figcaption><strong>Ananya &amp; Rohan</strong> · rented in Vasant Kunj</figcaption>
-                </figure>
+        <section class="section section--paper" aria-labelledby="process-heading">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <span class="eyebrow">From shortlist to move-in</span>
+                        <h2 id="process-heading">How renting here works.</h2>
+                        <p>Three steps, one point of contact, and no mystery about what happens next.</p>
+                    </div>
+                </div>
+                <ol class="process">
+                    <li class="process-step">
+                        <span class="process-step__num">01</span>
+                        <h3>Check the details</h3>
+                        <p>Rent, deposit, furnishing and availability are on every listing before you enquire.</p>
+                    </li>
+                    <li class="process-step">
+                        <span class="process-step__num">02</span>
+                        <h3>Request a visit</h3>
+                        <p>Pick a preferred date on any home. We confirm by phone or email within one working day.</p>
+                    </li>
+                    <li class="process-step">
+                        <span class="process-step__num">03</span>
+                        <h3>Meet one contact</h3>
+                        <p>The same person handles the walkthrough and the paperwork through to move-in day.</p>
+                    </li>
+                </ol>
             </div>
         </section>
 
@@ -166,7 +213,7 @@
                         <p>Tell us about your place and we'll help you find the right tenant — with photos, details, and visits handled end to end.</p>
                     </div>
                     <div class="cta-actions">
-                        <a class="btn btn--light" href="contact.html">Talk to us</a>
+                        <a class="btn btn--light" href="contact.html?interest=list">Talk to us</a>
                         <a class="btn btn--ghost" href="listings.html">Browse homes</a>
                     </div>
                 </div>
@@ -184,32 +231,32 @@
                         </span>
                         Housing Baazar
                     </a>
-                    <p>Curated rental homes across Delhi NCR. Thoughtful spaces, honest details, and straightforward renting.</p>
+                    <p>Curated rental homes across Odisha. Thoughtful spaces, honest details, and straightforward renting.</p>
                 </div>
                 <div class="footer-col">
-                    <h3>Explore</h3>
+                    <h2>Explore</h2>
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="listings.html">Homes</a></li>
                         <li><a href="contact.html">Contact</a></li>
-                        <li><a href="login.html">Sign in</a></li>
+                        <li><a href="login.html" data-account-link>Sign in</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h3>Neighbourhoods</h3>
+                    <h2>Neighbourhoods</h2>
                     <ul>
-                        <li><a href="listings.html?q=Connaught%20Place">Connaught Place</a></li>
-                        <li><a href="listings.html?q=Hauz%20Khas">Hauz Khas</a></li>
-                        <li><a href="listings.html?q=Vasant%20Kunj">Vasant Kunj</a></li>
-                        <li><a href="listings.html?q=Chattarpur">Chattarpur</a></li>
+                        <li><a href="listings.html?q=Patia">Patia, Bhubaneswar</a></li>
+                        <li><a href="listings.html?q=Buxi%20Bazaar">Buxi Bazaar, Cuttack</a></li>
+                        <li><a href="listings.html?q=Baliapanda">Baliapanda, Puri</a></li>
+                        <li><a href="listings.html?q=Civil%20Township">Civil Township, Rourkela</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h3>Contact</h3>
+                    <h2>Contact</h2>
                     <ul>
                         <li><a href="mailto:support@housingbaazar.com">support@housingbaazar.com</a></li>
                         <li><a href="tel:+916371618670">+91 63716 18670</a></li>
-                        <li>New Delhi, India</li>
+                        <li>Bhubaneswar, Odisha, India</li>
                     </ul>
                 </div>
             </div>
@@ -221,6 +268,8 @@
     </footer>
 
     <script src="scripts.js"></script>
+    <script src="js/appearance.js"></script>
+    <script src="js/auth-client.js"></script>
 </body>
 
 </html>
