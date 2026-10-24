@@ -454,9 +454,10 @@ Housing Baazaar is built and maintained in spare time. If it is useful to you, a
   </a>
 </p>
 
-Open any UPI app — Google Pay, PhonePe, Paytm, BHIM, or your bank app — point it at **Scan QR**, and scan the code above. On a phone you can also [tap this UPI link](upi://pay?pa=rb492713@ibl&pn=RAJESH%20BEHERA&mc=0000&mode=02&purpose=00).
+Open any UPI app — Google Pay, PhonePe, Paytm, BHIM, or your bank app — point it at **Scan QR**, and scan the code above. If you are already on a phone, pay the UPI ID below instead; GitHub strips `upi:` deep links out of rendered markdown, so there is no tappable link here.
 
 - Payee: **Rajesh Behera**
 - UPI ID: `rb492713@ibl`
+- Raw request, if you want to paste it: `upi://pay?pa=rb492713@ibl&pn=RAJESH%20BEHERA&mc=0000&mode=02&purpose=00`
 
 Thank you.
